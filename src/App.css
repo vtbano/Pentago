@@ -9,9 +9,31 @@ body {
   background-color: #22577a;
 }
 
+footer,
+header {
+  display: grid;
+  justify-content: center;
+}
+
+.game-section {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .game-section {
+    display: block;
+  }
+}
+
 .title-symbol {
   height: 2rem;
   width: 2rem;
+}
+
+.option-buttons {
+  display: grid;
+  justify-content: center;
 }
 
 .restart-button,
@@ -19,6 +41,16 @@ body {
 .history-button {
   height: 3rem;
   width: 3rem;
+  margin: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .restart-button,
+  .rules-button,
+  .history-button {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 #githubLink,
@@ -28,4 +60,13 @@ body {
   font-size: 1rem;
   text-decoration: none;
   color: #ffd706;
+  margin: 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  #githubLink,
+  #LinkedIn,
+  .created-by {
+    font-size: 0.6rem;
+  }
 }
