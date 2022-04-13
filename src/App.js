@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Gameboard from "./gameboard";
+import Gameboard from "./gameBoard";
 import OptionButtons from "./optionButtons.js";
 
 const App = () => {
@@ -19,6 +19,10 @@ const App = () => {
       </header>
       <section className="game-section">
         <div className="container">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+          magni in nisi aperiam architecto ducimus odio. Laboriosam excepturi in
+          dolores, deleniti ut fuga vel quaerat magnam praesentium nihil sed
+          accusantium?
           <Gameboard />
         </div>
         <article className="option-buttons">
