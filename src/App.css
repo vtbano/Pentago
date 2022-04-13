@@ -1,24 +1,31 @@
-.App {
-  text-align: center;
+h1 {
+  font-family: "Galindo", cursive;
+  font-size: 3rem;
+  color: #ffd706;
+  display: inline;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  background-color: #22577a;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.title-symbol {
+  height: 2rem;
+  width: 2rem;
 }
 
-.App-intro {
-  font-size: large;
+.restart-button,
+.rules-button,
+.history-button {
+  height: 3rem;
+  width: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#githubLink,
+#LinkedIn,
+.created-by {
+  font-family: "Galindo", cursive;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #ffd706;
 }
