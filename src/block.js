@@ -1,8 +1,8 @@
 import React from "react";
-import Space from "./space.js";
+// import Space from "./space.js";
 
-const Block = () => {
-  return <div className="block"></div>;
+const Block = ({ board }) => {
+  return <div className="block">BLOCK</div>;
 };
 
 export default Block;
