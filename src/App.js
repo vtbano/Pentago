@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import LandingPageButtons from "./landingPage.js";
 import Gameboard from "./gameBoard.js";
 import OptionButtons from "./optionButtons.js";
 
 const App = () => {
+  const [display, setDisplay] = useState(false);
+  // const [currentPlayer, setCurrentPlayer] = useState({
+  //   name: "Player 1",
+  //   number: 1,
+  // });
+  // const [players, setPlayers] = useState[{}];
+
   return (
     <React.Fragment>
       <header>
@@ -19,7 +27,11 @@ const App = () => {
       </header>
       <section className="game-section">
         <div className="container">
-          <Gameboard />
+          {display ? (
+            <Gameboard />
+          ) : (
+            <LandingPageButtons display={display} setDisplay={setDisplay} />
+          )}
         </div>
         <article className="option-buttons">
           <OptionButtons />

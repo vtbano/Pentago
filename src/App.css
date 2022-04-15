@@ -55,6 +55,9 @@ header {
   }
 }
 
+.game-display-contents {
+  flex-direction: column;
+}
 .game-board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -75,6 +78,15 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   justify-items: center;
+}
+
+.current-player-display {
+  margin-top: 2rem;
+  font-family: "Galindo", cursive;
+  width: 5rem;
+  height: 3rem;
+  background-color: #f9efbc;
+  color: #38a3a5;
 }
 #githubLink,
 #LinkedIn,

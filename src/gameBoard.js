@@ -9,18 +9,18 @@ const Gameboard = () => {
   const boardBlocks = flatten(board);
   console.log("gameBoard.js console result:", boardBlocks);
 
-  // const [currentPlayer, setCurrentPlayer] = useState({ name: "", number: "" });
-  // const [players, setPlayers] = useState[{}];
-
   // const [marked, setMarked] = useState({});
   // const [blockSelected, setBlockSelected] = useState({ row: "", column: "" });
 
   return (
-    <div className="game-board">
-      {boardBlocks.map((blocks, index) => {
-        return <Block block={blocks} key={index} index={index} />; //this index is the one that was made when I mapped it out
-      })}
-    </div>
+    <section className="game-display-contents">
+      <div className="game-board">
+        {boardBlocks.map((blocks, index) => {
+          return <Block block={blocks} key={index} index={index} />; //this index is the one that was made when I mapped it out
+        })}
+      </div>
+      <div className="current-player-display">Current Player</div>
+    </section>
   );
 };
 
