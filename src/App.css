@@ -16,7 +16,8 @@ header {
   margin: 2rem;
 }
 
-.game-section {
+.game-section,
+.container {
   display: flex;
   justify-content: center;
 }
@@ -62,15 +63,18 @@ header {
 }
 
 .block {
-  width: 4rem;
-  height: 4rem;
+  width: 7rem;
+  height: 7rem;
   background-color: #ffd706;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .space {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  justify-items: center;
 }
 #githubLink,
 #LinkedIn,

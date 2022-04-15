@@ -6,7 +6,9 @@ import Block from "./block.js";
 const Gameboard = () => {
   const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
-  const boardBlocks = flatten(boardArray);
+  const boardBlocks = flatten(board);
+  console.log("gameBoard.js console result:", boardBlocks);
+
   // const [currentPlayer, setCurrentPlayer] = useState({ name: "", number: "" });
   // const [players, setPlayers] = useState[{}];
 
@@ -16,7 +18,7 @@ const Gameboard = () => {
   return (
     <div className="game-board">
       {boardBlocks.map((blocks, index) => {
-        return <Block board={board} key={index} />;
+        return <Block block={blocks} key={index} index={index} />; //this index is the one that was made when I mapped it out
       })}
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 
-const Space = () => {
-  return <div className="space">space</div>;
+const Space = ({ spaceSet }) => {
+  return <div className="space">{spaceSet}</div>;
 };
 
 export default Space;
