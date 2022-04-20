@@ -45,6 +45,7 @@ const App = () => {
         </div>
       </header>
       <section className="game-section">
+        {/* <div className="move-update-container">Move Update Container</div> */}
         <div className="container">
           {display ? (
             <Gameboard />

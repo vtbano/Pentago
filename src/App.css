@@ -71,13 +71,32 @@ header {
   background-color: #ffd706;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  transition: border 0.3s ease-in-out;
+}
+
+.block:hover {
+  border: 3px solid #333333;
 }
 
 .space {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   justify-items: center;
+  margin: -5px;
+}
+
+.space-button {
+  place-self: center;
+  background-color: #ffd706;
+  color: #f9efbc;
+  font-family: "Galindo", cursive;
+  font-size: 1rem;
+}
+
+.space-button:hover {
+  background-color: #38a3a5;
+  opacity: 50%;
+  margin: -5px;
 }
 
 .current-player-display {
