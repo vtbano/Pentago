@@ -10,7 +10,14 @@ const Block = ({ block, index }) => {
     //this will need to become a button or need to be encapsulated in a button
     <div className="block">
       {boardSpaces.map((spaceSet, spaceIndex) => {
-        return <Space spaceSet={spaceSet} key={spaceIndex} />;
+        return (
+          <Space
+            spaceSet={spaceSet}
+            blockIndex={index}
+            key={spaceIndex}
+            spaceIndex={spaceIndex}
+          />
+        );
       })}
     </div>
   );
