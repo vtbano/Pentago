@@ -4,12 +4,31 @@ import LandingPageButtons from "./landingPage.js";
 import Gameboard from "./gameBoard.js";
 import OptionButtons from "./optionButtons.js";
 
+// const numberOfPlayersSelected = (number) => {
+//   if (number === 2) {
+//     return setPlayers([
+//       { name: "Player 1", number: 1 },
+//       { name: "Player 2", number: 2 },
+//     ]);
+//   } else if (number === 3) {
+//     return setPlayers([
+//       { name: "Player 1", number: 1 },
+//       { name: "Player 2", number: 2 },
+//       { name: "Player 3", number: 3 },
+//     ]);
+//   } else if (number === 4) {
+//     return setPlayers([
+//       { name: "Player 1", number: 1 },
+//       { name: "Player 2", number: 2 },
+//       { name: "Player 3", number: 3 },
+//       { name: "Player 4", number: 4 },
+//     ]);
+//   }
+// };
+
 const App = () => {
   const [display, setDisplay] = useState(false);
-  // const [currentPlayer, setCurrentPlayer] = useState({
-  //   name: "Player 1",
-  //   number: 1,
-  // });
+
   // const [players, setPlayers] = useState[{}];
 
   return (
@@ -30,7 +49,12 @@ const App = () => {
           {display ? (
             <Gameboard />
           ) : (
-            <LandingPageButtons display={display} setDisplay={setDisplay} />
+            <LandingPageButtons
+              display={display}
+              setDisplay={setDisplay}
+              // players={players}
+              // setPlayers={setPlayers}
+            />
           )}
         </div>
         <article className="option-buttons">
