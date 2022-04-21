@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import boardArray from "./boardArray.js";
+import { batteries } from "./batteries.js";
 import LandingPageButtons from "./landingPage.js";
 import Gameboard from "./gameBoard.js";
 import OptionButtons from "./optionButtons.js";
@@ -26,7 +28,37 @@ import OptionButtons from "./optionButtons.js";
 //   }
 // };
 
+const markPosition = (marker, blockIndex, board, SpaceIndex, setBoard) => {
+  const { flatten } = batteries;
+  const boardBlocks = flatten(board);
+  const boardSpaces = flatten(boardBlocks);
+  boardSpaces[blockIndex][SpaceIndex] = marker;
+  boardBlocks[blockIndex] = boardSpaces[blockIndex];
+  const newMarkedBoard = [
+    [
+      [1, 2, 3],
+      [1, 2, 3],
+      [1, 2, 3],
+    ],
+    [
+      [1, 2, 3],
+      [1, 2, 3],
+      [1, 2, 3],
+    ],
+    [
+      [1, 2, 3],
+      [1, 2, 3],
+      [1, 2, 3],
+    ],
+    // [boardSpaces[0], boardSpaces[1], boardSpaces[2]],
+    // [boardSpaces[3], boardSpaces[4], boardSpaces[5]],
+    // [boardSpaces[6], boardSpaces[7], boardSpaces[8]],
+  ];
+  return setBoard(newMarkedBoard);
+};
+
 const App = () => {
+  const [board, setBoard] = useState(boardArray);
   const [display, setDisplay] = useState(false);
 
   // const [players, setPlayers] = useState[{}];
@@ -48,7 +80,11 @@ const App = () => {
         {/* <div className="move-update-container">Move Update Container</div> */}
         <div className="container">
           {display ? (
-            <Gameboard />
+            <Gameboard
+              board={board}
+              setBoard={setBoard}
+              markPosition={markPosition}
+            />
           ) : (
             <LandingPageButtons
               display={display}

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import boardArray from "./boardArray.js";
+import React from "react";
 import { batteries } from "./batteries.js";
 import Block from "./block.js";
 
-const Gameboard = () => {
-  const [board, setBoard] = useState(boardArray);
+const Gameboard = ({ board, setBoard, markPosition }) => {
+  // const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
   const boardBlocks = flatten(board);
-  console.log("gameBoard.js console result:", boardBlocks);
+  console.log("gameBoard.js console result boardBlocks 3x3:", boardBlocks);
 
   // const [marked, setMarked] = useState({});
   // const [blockSelected, setBlockSelected] = useState({ row: "", column: "" });
@@ -16,7 +15,16 @@ const Gameboard = () => {
     <section className="game-display-contents">
       <div className="game-board">
         {boardBlocks.map((blocks, index) => {
-          return <Block block={blocks} key={index} index={index} />; //this index is the one that was made when I mapped it out
+          return (
+            <Block
+              block={blocks}
+              key={index}
+              index={index}
+              board={board}
+              setBoard={setBoard}
+              markPosition={markPosition}
+            />
+          ); //this index is the one that was made when I mapped it out
         })}
       </div>
       <div className="current-player-display">Current Player</div>
