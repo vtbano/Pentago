@@ -55,14 +55,19 @@ const App = () => {
   const markPosition = (marker, blockIndex, board, SpaceIndex) => {
     const boardBlocks = flatten(board);
     // console.log("board blocks:", boardBlocks);
+
     const boardSpaces = createFlatBoardSpaces(boardBlocks);
-    boardSpaces[blockIndex][SpaceIndex] = marker;
-    console.log("board Spaces:", boardSpaces);
-    const newBoardBlocks = recreateBoardBlocks(boardSpaces);
-    console.log("new board blocks:", newBoardBlocks);
-    const newBoard = recreateBoardArray(newBoardBlocks);
-    // console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
-    return setBoard(newBoard);
+    if (boardSpaces[blockIndex][SpaceIndex] === 0) {
+      boardSpaces[blockIndex][SpaceIndex] = marker;
+      // console.log("board Spaces:", boardSpaces);
+      const newBoardBlocks = recreateBoardBlocks(boardSpaces);
+      // console.log("new board blocks:", newBoardBlocks);
+      const newBoard = recreateBoardArray(newBoardBlocks);
+      console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
+      return setBoard(newBoard);
+    } else if (boardSpaces[blockIndex][SpaceIndex] > 0) {
+      return alert("already taken");
+    }
   };
 
   return (
