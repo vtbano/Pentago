@@ -47,11 +47,26 @@ const recreateBoardArray = (newBoardBlocks) => {
   ];
 };
 
+const rot90 = (block) =>
+  block[0].map((val, index) => {
+    return block
+      .map((row) => {
+        if (Array.isArray(row[index])) {
+          return rot90(row[index]);
+        } else {
+          return row[index];
+        }
+      })
+      .reverse();
+  });
+
 const App = () => {
   const [board, setBoard] = useState(boardArray);
   const [display, setDisplay] = useState(false);
 
-  // const [players, setPlayers] = useState[{}];
+  const [players, setPlayers] = useState([]);
+  //create setPlayer setPlayers([{name:"Player 1", marker:1}, {name:"Player 2", marker:2}])
+
   const markPosition = (marker, blockIndex, board, SpaceIndex) => {
     const boardBlocks = flatten(board);
     // console.log("board blocks:", boardBlocks);
@@ -67,6 +82,33 @@ const App = () => {
       return setBoard(newBoard);
     } else if (boardSpaces[blockIndex][SpaceIndex] > 0) {
       return alert("already taken");
+    }
+  };
+
+  const rotateBlockSelected = (blockIndex, board, direction) => {
+    const boardBlocks = flatten(board);
+    console.log("board blocks:", boardBlocks[0]);
+
+    if (direction === 90) {
+      boardBlocks[blockIndex] = rot90(boardBlocks[blockIndex]);
+      const newBoard = recreateBoardArray(boardBlocks);
+      // console.log(
+      //   "NEW block shifted 90:",
+      //   newBoard[0],
+      //   newBoard[1],
+      //   newBoard[2]
+      // );
+      return setBoard(newBoard);
+    } else if (direction === 270) {
+      boardBlocks[blockIndex] = rot90(rot90(rot90(boardBlocks[blockIndex])));
+      const newBoard = recreateBoardArray(boardBlocks);
+      // console.log(
+      //   "NEW block shifted 270:",
+      //   newBoard[0],
+      //   newBoard[1],
+      //   newBoard[2]
+      // );
+      return setBoard(newBoard);
     }
   };
 
@@ -91,6 +133,8 @@ const App = () => {
               board={board}
               setBoard={setBoard}
               markPosition={markPosition}
+              rotateBlockSelected={rotateBlockSelected}
+              players={players}
             />
           ) : (
             <LandingPageButtons

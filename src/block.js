@@ -2,13 +2,25 @@ import React from "react";
 import { batteries } from "./batteries.js";
 import Space from "./space.js";
 
-const Block = ({ block, index, board, setBoard, markPosition }) => {
+const Block = ({
+  block,
+  index,
+  board,
+  setBoard,
+  markPosition,
+  rotateBlockSelected,
+  setMarked,
+}) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
   console.log("block.js console result boardSpaces:", boardSpaces);
+  //the shiftblock function just needs boardSpaces[index] then needs to know to shift either left or right
   return (
     //this will need to become a button or need to be encapsulated in a button
-    <div className="block">
+    <div
+      className="block"
+      onClick={() => rotateBlockSelected(index, board, 270)}
+    >
       {boardSpaces.map((spaceSet, spaceIndex) => {
         return (
           <Space
@@ -19,6 +31,7 @@ const Block = ({ block, index, board, setBoard, markPosition }) => {
             board={board}
             setBoard={setBoard}
             markPosition={markPosition}
+            setMarked={setMarked}
           />
         );
       })}

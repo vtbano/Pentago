@@ -8,6 +8,7 @@ const Space = ({
   board,
   setBoard,
   markPosition,
+  setMarked,
 }) => {
   return (
     <div className="space">
@@ -15,6 +16,7 @@ const Space = ({
         className="space-button"
         onClick={() => {
           markPosition(5, blockIndex, board, spaceIndex, setBoard);
+          setMarked(true);
         }}
       >
         {spaceSet}

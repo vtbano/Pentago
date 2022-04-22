@@ -56,6 +56,7 @@ header {
   background-color: #f9efbc;
   color: #38a3a5;
   border-radius: 20px;
+  border: none;
 }
 .title-symbol {
   height: 2rem;
@@ -86,7 +87,8 @@ header {
 }
 
 .game-display-contents {
-  flex-direction: column;
+  display: grid;
+  justify-items: center;
 }
 .game-board {
   display: grid;
