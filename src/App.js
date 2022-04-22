@@ -27,34 +27,24 @@ import OptionButtons from "./optionButtons.js";
 //     ]);
 //   }
 // };
+const { flatten } = batteries;
 
-const markPosition = (marker, blockIndex, board, SpaceIndex, setBoard) => {
-  const { flatten } = batteries;
-  const boardBlocks = flatten(board);
-  const boardSpaces = flatten(boardBlocks);
-  boardSpaces[blockIndex][SpaceIndex] = marker;
-  boardBlocks[blockIndex] = boardSpaces[blockIndex];
-  const newMarkedBoard = [
-    [
-      [1, 2, 3],
-      [1, 2, 3],
-      [1, 2, 3],
-    ],
-    [
-      [1, 2, 3],
-      [1, 2, 3],
-      [1, 2, 3],
-    ],
-    [
-      [1, 2, 3],
-      [1, 2, 3],
-      [1, 2, 3],
-    ],
-    // [boardSpaces[0], boardSpaces[1], boardSpaces[2]],
-    // [boardSpaces[3], boardSpaces[4], boardSpaces[5]],
-    // [boardSpaces[6], boardSpaces[7], boardSpaces[8]],
+const createFlatBoardSpaces = (boardBlocks) =>
+  boardBlocks.map((block) => {
+    return flatten(block);
+  });
+
+const recreateBoardBlocks = (boardSpaces) =>
+  boardSpaces.map((arr) => {
+    return [arr.slice(0, 3), arr.slice(3, 6), arr.slice(6, 9)];
+  });
+
+const recreateBoardArray = (newBoardBlocks) => {
+  return [
+    [newBoardBlocks[0], newBoardBlocks[1], newBoardBlocks[2]],
+    [newBoardBlocks[3], newBoardBlocks[4], newBoardBlocks[5]],
+    [newBoardBlocks[6], newBoardBlocks[7], newBoardBlocks[8]],
   ];
-  return setBoard(newMarkedBoard);
 };
 
 const App = () => {
@@ -62,6 +52,18 @@ const App = () => {
   const [display, setDisplay] = useState(false);
 
   // const [players, setPlayers] = useState[{}];
+  const markPosition = (marker, blockIndex, board, SpaceIndex) => {
+    const boardBlocks = flatten(board);
+    // console.log("board blocks:", boardBlocks);
+    const boardSpaces = createFlatBoardSpaces(boardBlocks);
+    boardSpaces[blockIndex][SpaceIndex] = marker;
+    console.log("board Spaces:", boardSpaces);
+    const newBoardBlocks = recreateBoardBlocks(boardSpaces);
+    console.log("new board blocks:", newBoardBlocks);
+    const newBoard = recreateBoardArray(newBoardBlocks);
+    // console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
+    return setBoard(newBoard);
+  };
 
   return (
     <React.Fragment>

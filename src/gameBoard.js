@@ -6,7 +6,7 @@ const Gameboard = ({ board, setBoard, markPosition }) => {
   // const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
   const boardBlocks = flatten(board);
-  console.log("gameBoard.js console result boardBlocks 3x3:", boardBlocks);
+  // console.log("gameBoard.js console result boardBlocks 3x3:", boardBlocks);
 
   // const [marked, setMarked] = useState({});
   // const [blockSelected, setBlockSelected] = useState({ row: "", column: "" });
