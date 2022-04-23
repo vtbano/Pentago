@@ -11,6 +11,16 @@ const ArrowButtons = ({
   setCurrentPlayer,
   setMarked,
 }) => {
+  console.log(currentPlayer);
+  console.log(players);
+
+  const nextPlayer = (currentPlayer, players) => {
+    if (currentPlayer.marker % players.length === 0) {
+      return setCurrentPlayer(players[0]);
+    } else {
+      setCurrentPlayer(players[currentPlayer.marker]);
+    }
+  };
   return (
     <section className="arrow-buttons">
       <img
@@ -18,10 +28,11 @@ const ArrowButtons = ({
         alt="left arrow button"
         className="left-arrow"
         onClick={() => {
-          rotateBlockSelected(blockSelected, board, 270);
+          rotateBlockSelected(blockSelected, board, 90);
           //add checkWinner & if statements
           setMarked(false);
           setPlayState(playStateType.markSpace);
+          nextPlayer(currentPlayer, players);
         }}
       />
       <img
@@ -29,10 +40,11 @@ const ArrowButtons = ({
         alt="right arrow button"
         className="right-arrow"
         onClick={() => {
-          rotateBlockSelected(blockSelected, board, 90);
+          rotateBlockSelected(blockSelected, board, 270);
           //add checkWinner & if statements
           setMarked(false);
           setPlayState(playStateType.markSpace);
+          nextPlayer(currentPlayer, players);
         }}
       />
       <p>

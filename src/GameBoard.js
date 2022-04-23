@@ -68,7 +68,7 @@ const Gameboard = ({ players }) => {
       console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
       return setBoard(newBoard);
     } else if (boardSpaces[blockIndex][SpaceIndex] > 0) {
-      return alert("already taken");
+      return markPosition(marker, blockIndex, board, SpaceIndex);
     }
   };
 
@@ -129,7 +129,10 @@ const Gameboard = ({ players }) => {
             />
           </div>
         ) : (
-          <div className="current-player-display">{currentPlayer.name}</div>
+          <div className="instruction-and-player">
+            <div className="current-player-display">{currentPlayer.name}</div>
+            <p>Mark a space</p>
+          </div>
         )}
       </div>
     </section>

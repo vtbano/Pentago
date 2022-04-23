@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { batteries } from "./batteries.js";
 import Space from "./Space.js";
+import "./App.css";
 
 const Block = ({
   block,
@@ -21,13 +22,24 @@ const Block = ({
   const boardSpaces = flatten(block);
   console.log("block.js console result boardSpaces:", boardSpaces);
   //the shiftblock function just needs boardSpaces[index] then needs to know to shift either left or right
+  const [isActive, setActive] = useState(false);
+  // const handleToggle = (index) => {
+  //   setActive(!isActive);
+  // };
+
   return (
     //this will need to become a button or need to be encapsulated in a button
+
     <div
-      className="block"
+      className={isActive ? "choose-block" : "block"}
       onClick={(e) => {
         e.preventDefault();
+
         if (playState === playStateType.tileShift) {
+          setActive(true);
+          // {
+          //   handleToggle(index); // Fix the toggle so that it removes the class from the previous index
+          // }
           return setBlockSelected(index);
         }
       }}

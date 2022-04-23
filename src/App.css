@@ -108,9 +108,18 @@ header {
   transition: border 0.3s ease-in-out;
 }
 
-.block:hover {
-  opacity: 50%;
+.choose-block {
+  width: 7rem;
+  height: 7rem;
+  background-color: #ffd606d0;
+  border: solid 2px blue;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
+
+/* .block:hover {
+  opacity: 50%;
+} */
 
 .space {
   display: grid;
