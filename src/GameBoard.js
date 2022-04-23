@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { batteries } from "./batteries.js";
 import boardArray from "./boardArray.js";
-import ArrowButtons from "./directionArrows.js";
-import Block from "./block.js";
+import ArrowButtons from "./ArrowButtons.js";
+import Block from "./Block.js";
 
 const { flatten } = batteries;
 
@@ -103,6 +103,8 @@ const Gameboard = ({ players }) => {
               markPosition={markPosition}
               rotateBlockSelected={rotateBlockSelected}
               setMarked={setMarked}
+              currentPlayer={currentPlayer}
+              setCurrentPlayer={setCurrentPlayer}
             />
           ); //this index is the one that was made when I mapped it out
         })}
@@ -113,7 +115,7 @@ const Gameboard = ({ players }) => {
             <ArrowButtons />
           </div>
         ) : (
-          <div className="current-player-display">Current Player</div>
+          <div className="current-player-display">{currentPlayer.name}</div>
         )}
       </div>
     </section>

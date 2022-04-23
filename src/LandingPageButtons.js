@@ -1,6 +1,6 @@
 import React from "react";
 
-const LandingPageButtons = ({ setDisplay }) => {
+const LandingPageButtons = ({ setDisplay, setPlayers }) => {
   return (
     <section className="player-option-buttons">
       <img
@@ -17,10 +17,10 @@ const LandingPageButtons = ({ setDisplay }) => {
         className="two-player"
         onClick={() => {
           setDisplay(true);
-          // setPlayers([
-          //   { name: "Player 1", number: 1 },
-          //   { name: "Player 2", number: 2 },
-          // ]);
+          setPlayers([
+            { name: "Player 1", marker: 1 },
+            { name: "Player 2", marker: 2 },
+          ]);
         }}
       >
         2 Players
@@ -29,11 +29,11 @@ const LandingPageButtons = ({ setDisplay }) => {
         className="three-player"
         onClick={() => {
           setDisplay(true);
-          // setPlayers([
-          //   { name: "Player 1", number: 1 },
-          //   { name: "Player 2", number: 2 },
-          //   { name: "Player 3", number: 3 },
-          // ]);
+          setPlayers([
+            { name: "Player 1", marker: 1 },
+            { name: "Player 2", marker: 2 },
+            { name: "Player 3", marker: 3 },
+          ]);
         }}
       >
         3 Players
@@ -42,12 +42,12 @@ const LandingPageButtons = ({ setDisplay }) => {
         className="four-player"
         onClick={() => {
           setDisplay(true);
-          // setPlayers([
-          //   { name: "Player 1", number: 1 },
-          //   { name: "Player 2", number: 2 },
-          //   { name: "Player 3", number: 3 },
-          //   { name: "Player 4", number: 4 },
-          // ]);
+          setPlayers([
+            { name: "Player 1", marker: 1 },
+            { name: "Player 2", marker: 2 },
+            { name: "Player 3", marker: 3 },
+            { name: "Player 4", marker: 4 },
+          ]);
         }}
       >
         4 Players

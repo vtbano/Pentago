@@ -1,6 +1,6 @@
 import React from "react";
 import { batteries } from "./batteries.js";
-import Space from "./space.js";
+import Space from "./Space.js";
 
 const Block = ({
   block,

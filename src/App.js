@@ -1,35 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import LandingPageButtons from "./landingPage.js";
-import Gameboard from "./gameBoard.js";
-import OptionButtons from "./optionButtons.js";
-
-// const numberOfPlayersSelected = (number) => {
-//   if (number === 2) {
-//     return setPlayers([
-//       { name: "Player 1", number: 1 },
-//       { name: "Player 2", number: 2 },
-//     ]);
-//   } else if (number === 3) {
-//     return setPlayers([
-//       { name: "Player 1", number: 1 },
-//       { name: "Player 2", number: 2 },
-//       { name: "Player 3", number: 3 },
-//     ]);
-//   } else if (number === 4) {
-//     return setPlayers([
-//       { name: "Player 1", number: 1 },
-//       { name: "Player 2", number: 2 },
-//       { name: "Player 3", number: 3 },
-//       { name: "Player 4", number: 4 },
-//     ]);
-//   }
-// };
+import LandingPageButtons from "./LandingPageButtons.js";
+import Gameboard from "./GameBoard.js";
+import OptionButtons from "./OptionButtons.js";
 
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
-  //create setPlayer setPlayers([{name:"Player 1", marker:1}, {name:"Player 2", marker:2}])
 
   return (
     <React.Fragment>
@@ -53,8 +30,7 @@ const App = () => {
             <LandingPageButtons
               display={display}
               setDisplay={setDisplay}
-              // players={players}
-              // setPlayers={setPlayers}
+              setPlayers={setPlayers}
             />
           )}
         </div>
