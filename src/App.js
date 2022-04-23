@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import boardArray from "./boardArray.js";
-import { batteries } from "./batteries.js";
 import LandingPageButtons from "./landingPage.js";
 import Gameboard from "./gameBoard.js";
 import OptionButtons from "./optionButtons.js";
@@ -27,90 +25,11 @@ import OptionButtons from "./optionButtons.js";
 //     ]);
 //   }
 // };
-const { flatten } = batteries;
-
-const createFlatBoardSpaces = (boardBlocks) =>
-  boardBlocks.map((block) => {
-    return flatten(block);
-  });
-
-const recreateBoardBlocks = (boardSpaces) =>
-  boardSpaces.map((arr) => {
-    return [arr.slice(0, 3), arr.slice(3, 6), arr.slice(6, 9)];
-  });
-
-const recreateBoardArray = (newBoardBlocks) => {
-  return [
-    [newBoardBlocks[0], newBoardBlocks[1], newBoardBlocks[2]],
-    [newBoardBlocks[3], newBoardBlocks[4], newBoardBlocks[5]],
-    [newBoardBlocks[6], newBoardBlocks[7], newBoardBlocks[8]],
-  ];
-};
-
-const rot90 = (block) =>
-  block[0].map((val, index) => {
-    return block
-      .map((row) => {
-        if (Array.isArray(row[index])) {
-          return rot90(row[index]);
-        } else {
-          return row[index];
-        }
-      })
-      .reverse();
-  });
 
 const App = () => {
-  const [board, setBoard] = useState(boardArray);
   const [display, setDisplay] = useState(false);
-
   const [players, setPlayers] = useState([]);
   //create setPlayer setPlayers([{name:"Player 1", marker:1}, {name:"Player 2", marker:2}])
-
-  const markPosition = (marker, blockIndex, board, SpaceIndex) => {
-    const boardBlocks = flatten(board);
-    // console.log("board blocks:", boardBlocks);
-
-    const boardSpaces = createFlatBoardSpaces(boardBlocks);
-    if (boardSpaces[blockIndex][SpaceIndex] === 0) {
-      boardSpaces[blockIndex][SpaceIndex] = marker;
-      // console.log("board Spaces:", boardSpaces);
-      const newBoardBlocks = recreateBoardBlocks(boardSpaces);
-      // console.log("new board blocks:", newBoardBlocks);
-      const newBoard = recreateBoardArray(newBoardBlocks);
-      console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
-      return setBoard(newBoard);
-    } else if (boardSpaces[blockIndex][SpaceIndex] > 0) {
-      return alert("already taken");
-    }
-  };
-
-  const rotateBlockSelected = (blockIndex, board, direction) => {
-    const boardBlocks = flatten(board);
-    console.log("board blocks:", boardBlocks[0]);
-
-    if (direction === 90) {
-      boardBlocks[blockIndex] = rot90(boardBlocks[blockIndex]);
-      const newBoard = recreateBoardArray(boardBlocks);
-      // console.log(
-      //   "NEW block shifted 90:",
-      //   newBoard[0],
-      //   newBoard[1],
-      //   newBoard[2]
-      // );
-      return setBoard(newBoard);
-    } else if (direction === 270) {
-      boardBlocks[blockIndex] = rot90(rot90(rot90(boardBlocks[blockIndex])));
-      const newBoard = recreateBoardArray(boardBlocks);
-      // console.log(
-      //   "NEW block shifted 270:",
-      //   newBoard[0],
-      //   newBoard[1],
-      //   newBoard[2]
-      // );
-      return setBoard(newBoard);
-    }
-  };
 
   return (
     <React.Fragment>
@@ -129,13 +48,7 @@ const App = () => {
         {/* <div className="move-update-container">Move Update Container</div> */}
         <div className="container">
           {display ? (
-            <Gameboard
-              board={board}
-              setBoard={setBoard}
-              markPosition={markPosition}
-              rotateBlockSelected={rotateBlockSelected}
-              players={players}
-            />
+            <Gameboard players={players} />
           ) : (
             <LandingPageButtons
               display={display}
