@@ -101,12 +101,14 @@ const Gameboard = ({ players }) => {
               board={board}
               setBoard={setBoard}
               markPosition={markPosition}
-              rotateBlockSelected={rotateBlockSelected}
+              // rotateBlockSelected={rotateBlockSelected}
               setMarked={setMarked}
+              setBlockSelected={setBlockSelected}
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
               playState={playState}
               setPlayState={setPlayState}
+              playStateType={playStateType}
             />
           ); //this index is the one that was made when I mapped it out
         })}
@@ -114,7 +116,13 @@ const Gameboard = ({ players }) => {
       <div className="detail-and-option-arrow-box">
         {marked ? (
           <div>
-            <ArrowButtons />
+            <ArrowButtons
+              board={board}
+              rotateBlockSelected={rotateBlockSelected}
+              blockSelected={blockSelected}
+              setPlayState={setPlayState}
+              playStateType={playStateType}
+            />
           </div>
         ) : (
           <div className="current-player-display">{currentPlayer.name}</div>

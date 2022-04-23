@@ -8,12 +8,14 @@ const Block = ({
   board,
   setBoard,
   markPosition,
-  rotateBlockSelected,
+  // rotateBlockSelected,
   setMarked,
+  setBlockSelected,
   currentPlayer,
   setCurrentPlayer,
   playState,
   setPlayState,
+  playStateType,
 }) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
@@ -23,7 +25,12 @@ const Block = ({
     //this will need to become a button or need to be encapsulated in a button
     <div
       className="block"
-      // onClick={() => rotateBlockSelected(index, board, 270)}
+      onClick={(e) => {
+        e.preventDefault();
+        if (playState === playStateType.tileShift) {
+          return setBlockSelected(index);
+        }
+      }}
     >
       {boardSpaces.map((spaceSet, spaceIndex) => {
         return (
@@ -40,6 +47,7 @@ const Block = ({
             setCurrentPlayer={setCurrentPlayer}
             playState={playState}
             setPlayState={setPlayState}
+            playStateType={playStateType}
           />
         );
       })}

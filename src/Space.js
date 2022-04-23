@@ -13,14 +13,22 @@ const Space = ({
   setCurrentPlayer,
   playState,
   setPlayState,
+  playStateType,
 }) => {
   return (
     <div className="space">
       <button
         className="space-button"
         onClick={() => {
-          markPosition(5, blockIndex, board, spaceIndex, setBoard);
+          markPosition(
+            currentPlayer.marker,
+            blockIndex,
+            board,
+            spaceIndex,
+            setBoard
+          );
           setMarked(true);
+          setPlayState(playStateType.tileShift);
         }}
       >
         {spaceSet}
