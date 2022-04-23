@@ -105,6 +105,8 @@ const Gameboard = ({ players }) => {
               setMarked={setMarked}
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
+              playState={playState}
+              setPlayState={setPlayState}
             />
           ); //this index is the one that was made when I mapped it out
         })}

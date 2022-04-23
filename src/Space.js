@@ -9,6 +9,10 @@ const Space = ({
   setBoard,
   markPosition,
   setMarked,
+  currentPlayer,
+  setCurrentPlayer,
+  playState,
+  setPlayState,
 }) => {
   return (
     <div className="space">

@@ -10,6 +10,10 @@ const Block = ({
   markPosition,
   rotateBlockSelected,
   setMarked,
+  currentPlayer,
+  setCurrentPlayer,
+  playState,
+  setPlayState,
 }) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
@@ -32,6 +36,10 @@ const Block = ({
             setBoard={setBoard}
             markPosition={markPosition}
             setMarked={setMarked}
+            currentPlayer={currentPlayer}
+            setCurrentPlayer={setCurrentPlayer}
+            playState={playState}
+            setPlayState={setPlayState}
           />
         );
       })}
