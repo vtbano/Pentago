@@ -122,6 +122,10 @@ const Gameboard = ({ players }) => {
               blockSelected={blockSelected}
               setPlayState={setPlayState}
               playStateType={playStateType}
+              players={players}
+              currentPlayer={currentPlayer}
+              setCurrentPlayer={setCurrentPlayer}
+              setMarked={setMarked}
             />
           </div>
         ) : (

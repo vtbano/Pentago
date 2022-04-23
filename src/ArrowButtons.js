@@ -1,6 +1,16 @@
 import React from "react";
 
-const ArrowButtons = ({ board, rotateBlockSelected, blockSelected }) => {
+const ArrowButtons = ({
+  board,
+  rotateBlockSelected,
+  blockSelected,
+  setPlayState,
+  playStateType,
+  players,
+  currentPlayer,
+  setCurrentPlayer,
+  setMarked,
+}) => {
   return (
     <section className="arrow-buttons">
       <img
@@ -9,7 +19,9 @@ const ArrowButtons = ({ board, rotateBlockSelected, blockSelected }) => {
         className="left-arrow"
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 270);
-          //add setPlayState
+          //add checkWinner & if statements
+          setMarked(false);
+          setPlayState(playStateType.markSpace);
         }}
       />
       <img
@@ -18,7 +30,9 @@ const ArrowButtons = ({ board, rotateBlockSelected, blockSelected }) => {
         className="right-arrow"
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 90);
-          //add setPlayState
+          //add checkWinner & if statements
+          setMarked(false);
+          setPlayState(playStateType.markSpace);
         }}
       />
       <p>
