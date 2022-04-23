@@ -112,14 +112,10 @@ header {
   width: 7rem;
   height: 7rem;
   background-color: #ffd606d0;
-  border: solid 2px blue;
+  border: solid 2px #c1f8cf;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
-/* .block:hover {
-  opacity: 50%;
-} */
 
 .space {
   display: grid;

@@ -4,7 +4,7 @@ import boardArray from "./boardArray.js";
 import ArrowButtons from "./ArrowButtons.js";
 import Block from "./Block.js";
 
-const { flatten } = batteries;
+const { flatten, range } = batteries;
 
 const createFlatBoardSpaces = (boardBlocks) =>
   boardBlocks.map((block) => {
@@ -53,6 +53,89 @@ const Gameboard = ({ players }) => {
     markSpace: "markSpace",
   };
   const [playState, setPlayState] = useState(playStateType.markSpace); // this wld be the intial playState and this would change each state of the game
+
+  const elementsIndex = (arr, elem) => {
+    return arr.reduce((finalArray, val, idx) => {
+      return elem === val ? finalArray.concat(idx) : finalArray;
+    }, []);
+  };
+
+  // this function will return whether the numbers in the row are consecutive
+  const indexDiff = (rowIndexArray) => {
+    return rowIndexArray.slice(1).every((x, i) => x - rowIndexArray[i] === 1);
+  };
+
+  const newRows = (indexofRow, board) => {
+    return indexofRow.map((index) =>
+      flatten(
+        board[Math.floor(index / board.length)].map(
+          (block) => block[index % block.length]
+        )
+      )
+    );
+  };
+
+  const flattenBoardRows = (board) => {
+    const numRows = board.length * board[0].length;
+    const indexofRow = range(0, numRows - 1);
+    return newRows(indexofRow, board);
+  };
+
+  const checkWinner = (board, marker) => {
+    const boardFlattened9Rows = flattenBoardRows(board);
+    const boardFlattened9Cols = flattenBoardRows(rot90(board));
+    const boardFlattenedDiag = flatten(diagonalRows(board));
+    const isTrue = (x) => x === true;
+    if (fiveMarkersWin(boardFlattened9Rows, marker).some(isTrue)) {
+      return true, console.log("horizontal win");
+    } else if (fiveMarkersWin(boardFlattened9Cols, marker).some(isTrue)) {
+      return true, console.log("vertical win"); //must insert diaganol check
+    } else if (fiveMarkersWin(boardFlattenedDiag, marker).some(isTrue)) {
+      return true, console.log("diagonal win");
+    } else {
+      return false, console.log("Tie, no one wins");
+    }
+  };
+
+  const fiveMarkersWin = (boardFlattened, symbol) => {
+    return boardFlattened.map((arr, index) => {
+      arr = elementsIndex(arr, symbol);
+      if (arr.length >= 5) {
+        return indexDiff(arr);
+      } else {
+        return false;
+      }
+    });
+  };
+
+  //this function takes the board given and returns the top left of the board all the way to the halfway point
+  const topLeftDiag = (indexofRow, rows) =>
+    indexofRow.map((firstY) => {
+      const ys = range(0, firstY).reverse(); //[2,1,0]
+      return ys.map((y, x) => rows[y][x]);
+    });
+
+  //this function returns all the diagonal rows from starting from each corner of the board
+  const diagonalRows = (board) => {
+    const boardRot90 = rot90(board);
+    const boardRot180 = rot90(boardRot90);
+    const boardRot270 = rot90(boardRot180);
+
+    const rows = flattenBoardRows(board);
+    const rows1 = flattenBoardRows(boardRot90);
+    const rows2 = flattenBoardRows(boardRot180);
+    const rows3 = flattenBoardRows(boardRot270);
+
+    const numRows = board.length * board[0].length;
+    const indexofRow = range(0, numRows - 1);
+
+    return [
+      topLeftDiag(indexofRow, rows),
+      topLeftDiag(indexofRow, rows1),
+      topLeftDiag(indexofRow, rows2),
+      topLeftDiag(indexofRow, rows3),
+    ];
+  };
 
   const markPosition = (marker, blockIndex, board, SpaceIndex) => {
     const boardBlocks = flatten(board);
@@ -109,6 +192,7 @@ const Gameboard = ({ players }) => {
               playState={playState}
               setPlayState={setPlayState}
               playStateType={playStateType}
+              checkWinner={checkWinner}
             />
           ); //this index is the one that was made when I mapped it out
         })}
@@ -126,6 +210,7 @@ const Gameboard = ({ players }) => {
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
               setMarked={setMarked}
+              checkWinner={checkWinner}
             />
           </div>
         ) : (

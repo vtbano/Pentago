@@ -9,7 +9,6 @@ const Block = ({
   board,
   setBoard,
   markPosition,
-  // rotateBlockSelected,
   setMarked,
   setBlockSelected,
   currentPlayer,
@@ -17,11 +16,11 @@ const Block = ({
   playState,
   setPlayState,
   playStateType,
+  checkWinner,
 }) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
   console.log("block.js console result boardSpaces:", boardSpaces);
-  //the shiftblock function just needs boardSpaces[index] then needs to know to shift either left or right
   const [isActive, setActive] = useState(false);
   // const handleToggle = (index) => {
   //   setActive(!isActive);
@@ -60,6 +59,7 @@ const Block = ({
             playState={playState}
             setPlayState={setPlayState}
             playStateType={playStateType}
+            checkWinner={checkWinner}
           />
         );
       })}
