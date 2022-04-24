@@ -9,7 +9,7 @@ const Block = ({
   board,
   setBoard,
   markPosition,
-  setMarked,
+  // setMarked,
   setBlockSelected,
   currentPlayer,
   setCurrentPlayer,
@@ -17,10 +17,13 @@ const Block = ({
   setPlayState,
   playStateType,
   checkWinner,
+  displayContainerState,
+  setDisplayContainerState,
+  containerStateType,
 }) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
-  console.log("block.js console result boardSpaces:", boardSpaces);
+  // console.log("block.js console result boardSpaces:", boardSpaces);
   const [isActive, setActive] = useState(false);
   // const handleToggle = (index) => {
   //   setActive(!isActive);
@@ -53,13 +56,15 @@ const Block = ({
             board={board}
             setBoard={setBoard}
             markPosition={markPosition}
-            setMarked={setMarked}
+            // setMarked={setMarked}
             currentPlayer={currentPlayer}
-            setCurrentPlayer={setCurrentPlayer}
             playState={playState}
             setPlayState={setPlayState}
             playStateType={playStateType}
             checkWinner={checkWinner}
+            displayContainerState={displayContainerState}
+            setDisplayContainerState={setDisplayContainerState}
+            containerStateType={containerStateType}
           />
         );
       })}

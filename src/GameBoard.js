@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { batteries } from "./batteries.js";
 import boardArray from "./boardArray.js";
-import ArrowButtons from "./ArrowButtons.js";
 import Block from "./Block.js";
+import ArrowButtons from "./ArrowButtons.js";
+import ActivePlayer from "./ActivePlayer";
+import WinState from "./WinState.js";
+import TieState from "./TieState";
 
 const { flatten, range } = batteries;
 
@@ -42,7 +45,7 @@ const Gameboard = ({ players }) => {
   const { flatten } = batteries;
   const boardBlocks = flatten(board);
   // console.log("gameBoard.js console result boardBlocks 3x3:", boardBlocks);
-  const [marked, setMarked] = useState(false);
+
   const [currentPlayer, setCurrentPlayer] = useState(players[0]); //curent player, then when another turn is done when you will change to next player /loop back to the beginning
   const [blockSelected, setBlockSelected] = useState(0);
 
@@ -52,7 +55,17 @@ const Gameboard = ({ players }) => {
     tileShift: "tileShift",
     markSpace: "markSpace",
   };
+
+  const containerStateType = {
+    ArrowButtons: "ArrowButtons",
+    TieState: "TieState",
+    WinState: "WinState",
+    ActivePlayer: "ActivePlayer",
+  };
   const [playState, setPlayState] = useState(playStateType.markSpace); // this wld be the intial playState and this would change each state of the game
+  const [displayContainerState, setDisplayContainerState] = useState(
+    containerStateType.ActivePlayer
+  );
 
   const elementsIndex = (arr, elem) => {
     return arr.reduce((finalArray, val, idx) => {
@@ -81,20 +94,10 @@ const Gameboard = ({ players }) => {
     return newRows(indexofRow, board);
   };
 
-  const checkWinner = (board, marker) => {
-    const boardFlattened9Rows = flattenBoardRows(board);
-    const boardFlattened9Cols = flattenBoardRows(rot90(board));
-    const boardFlattenedDiag = flatten(diagonalRows(board));
-    const isTrue = (x) => x === true;
-    if (fiveMarkersWin(boardFlattened9Rows, marker).some(isTrue)) {
-      return true, console.log("horizontal win");
-    } else if (fiveMarkersWin(boardFlattened9Cols, marker).some(isTrue)) {
-      return true, console.log("vertical win"); //must insert diaganol check
-    } else if (fiveMarkersWin(boardFlattenedDiag, marker).some(isTrue)) {
-      return true, console.log("diagonal win");
-    } else {
-      return false, console.log("Tie, no one wins");
-    }
+  const fullBoard = (board) => {
+    const flattenBoard1arr = flatten(flatten(flatten(board)));
+    console.log(flattenBoard1arr);
+    return flattenBoard1arr.every((space) => space !== 0);
   };
 
   const fiveMarkersWin = (boardFlattened, symbol) => {
@@ -137,6 +140,24 @@ const Gameboard = ({ players }) => {
     ];
   };
 
+  const checkWinner = (board, marker) => {
+    const boardFlattened9Rows = flattenBoardRows(board);
+    const boardFlattened9Cols = flattenBoardRows(rot90(board));
+    const boardFlattenedDiag = flatten(diagonalRows(board));
+    const isTrue = (x) => x === true;
+    if (fiveMarkersWin(boardFlattened9Rows, marker).some(isTrue)) {
+      return true; //horizontal win
+    } else if (fiveMarkersWin(boardFlattened9Cols, marker).some(isTrue)) {
+      return true; //vertical win
+    } else if (fiveMarkersWin(boardFlattenedDiag, marker).some(isTrue)) {
+      return true; //diagonal win
+    } else if (fullBoard(board)) {
+      return 0; //tie
+    } else {
+      return false; //cont' game
+    }
+  };
+
   const markPosition = (marker, blockIndex, board, SpaceIndex) => {
     const boardBlocks = flatten(board);
     // console.log("board blocks:", boardBlocks);
@@ -148,8 +169,9 @@ const Gameboard = ({ players }) => {
       const newBoardBlocks = recreateBoardBlocks(boardSpaces);
       // console.log("new board blocks:", newBoardBlocks);
       const newBoard = recreateBoardArray(newBoardBlocks);
-      console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
-      return setBoard(newBoard);
+      // console.log("NEW BOARD:", newBoard[0], newBoard[1], newBoard[2]);
+      setBoard(newBoard);
+      return newBoard;
     } else if (boardSpaces[blockIndex][SpaceIndex] > 0) {
       return markPosition(marker, blockIndex, board, SpaceIndex);
     }
@@ -157,18 +179,45 @@ const Gameboard = ({ players }) => {
 
   const rotateBlockSelected = (blockIndex, board, direction) => {
     const boardBlocks = flatten(board);
-    console.log("board blocks:", boardBlocks[0]);
+    // console.log("board blocks:", boardBlocks[0]);
 
     if (direction === 90) {
       boardBlocks[blockIndex] = rot90(boardBlocks[blockIndex]);
       const newBoard = recreateBoardArray(boardBlocks);
-
-      return setBoard(newBoard);
+      setBoard(newBoard);
+      return newBoard;
     } else if (direction === 270) {
       boardBlocks[blockIndex] = rot90(rot90(rot90(boardBlocks[blockIndex])));
       const newBoard = recreateBoardArray(boardBlocks);
+      setBoard(newBoard);
+      return newBoard;
+    }
+  };
 
-      return setBoard(newBoard);
+  const displayContainer = (displayContainerstate) => {
+    if (displayContainerState === "ActivePlayer") {
+      return <ActivePlayer currentPlayer={currentPlayer} />;
+    } else if (displayContainerState === "ArrowButtons") {
+      return (
+        <ArrowButtons
+          board={board}
+          rotateBlockSelected={rotateBlockSelected}
+          blockSelected={blockSelected}
+          setPlayState={setPlayState}
+          playStateType={playStateType}
+          players={players}
+          currentPlayer={currentPlayer}
+          setCurrentPlayer={setCurrentPlayer}
+          checkWinner={checkWinner}
+          displayContainerState={displayContainerState}
+          setDisplayContainerState={setDisplayContainerState}
+          containerStateType={containerStateType}
+        />
+      );
+    } else if (displayContainerState === "WinState") {
+      return <WinState currentPlayer={currentPlayer} />;
+    } else if (displayContainerState === "TieState") {
+      return <TieState />;
     }
   };
 
@@ -185,7 +234,7 @@ const Gameboard = ({ players }) => {
               setBoard={setBoard}
               markPosition={markPosition}
               // rotateBlockSelected={rotateBlockSelected}
-              setMarked={setMarked}
+              // setMarked={setMarked}
               setBlockSelected={setBlockSelected}
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
@@ -193,32 +242,15 @@ const Gameboard = ({ players }) => {
               setPlayState={setPlayState}
               playStateType={playStateType}
               checkWinner={checkWinner}
+              displayContainerState={displayContainerState}
+              setDisplayContainerState={setDisplayContainerState}
+              containerStateType={containerStateType}
             />
           ); //this index is the one that was made when I mapped it out
         })}
       </div>
-      <div className="detail-and-option-arrow-box">
-        {marked ? (
-          <div>
-            <ArrowButtons
-              board={board}
-              rotateBlockSelected={rotateBlockSelected}
-              blockSelected={blockSelected}
-              setPlayState={setPlayState}
-              playStateType={playStateType}
-              players={players}
-              currentPlayer={currentPlayer}
-              setCurrentPlayer={setCurrentPlayer}
-              setMarked={setMarked}
-              checkWinner={checkWinner}
-            />
-          </div>
-        ) : (
-          <div className="instruction-and-player">
-            <div className="current-player-display">{currentPlayer.name}</div>
-            <p>Mark a space</p>
-          </div>
-        )}
+      <div className="additional-detail-box">
+        {displayContainer(displayContainerState)};
       </div>
     </section>
   );

@@ -9,11 +9,11 @@ const ArrowButtons = ({
   players,
   currentPlayer,
   setCurrentPlayer,
-  setMarked,
+  // setMarked,
+  displayContainerState,
+  setDisplayContainerState,
+  containerStateType,
 }) => {
-  console.log(currentPlayer);
-  console.log(players);
-
   const nextPlayer = (currentPlayer, players) => {
     if (currentPlayer.marker % players.length === 0) {
       return setCurrentPlayer(players[0]);
@@ -30,7 +30,7 @@ const ArrowButtons = ({
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 90);
           //add checkWinner & if statements
-          setMarked(false);
+          setDisplayContainerState(containerStateType.ActivePlayer);
           setPlayState(playStateType.markSpace);
           nextPlayer(currentPlayer, players);
         }}
@@ -42,7 +42,7 @@ const ArrowButtons = ({
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 270);
           //add checkWinner & if statements
-          setMarked(false);
+          setDisplayContainerState(containerStateType.ActivePlayer);
           setPlayState(playStateType.markSpace);
           nextPlayer(currentPlayer, players);
         }}

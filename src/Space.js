@@ -1,5 +1,4 @@
 import React from "react";
-// import { flatten } from "./batteries.js";
 
 const Space = ({
   spaceSet,
@@ -10,10 +9,13 @@ const Space = ({
   markPosition,
   setMarked,
   currentPlayer,
-  setCurrentPlayer,
   playState,
   setPlayState,
   playStateType,
+  checkWinner,
+  displayContainerState,
+  setDisplayContainerState,
+  containerStateType,
 }) => {
   return (
     <div className="space">
@@ -29,8 +31,32 @@ const Space = ({
               spaceIndex,
               setBoard
             );
-            setMarked(true);
-            setPlayState(playStateType.tileShift);
+
+            const newBoard = markPosition(
+              currentPlayer.marker,
+              blockIndex,
+              board,
+              spaceIndex,
+              setBoard
+            );
+
+            const resultCheckWinner = checkWinner(
+              newBoard,
+              currentPlayer.marker
+            );
+            console.log("result of checkWinner", resultCheckWinner);
+            if (resultCheckWinner === true) {
+              setPlayState(playStateType.win);
+              setDisplayContainerState(containerStateType.WinState);
+              console.log(currentPlayer, "WINS");
+            } else if (resultCheckWinner === 0) {
+              setPlayState(playStateType.tie);
+              setDisplayContainerState(containerStateType.TieState);
+              console.log(currentPlayer, "TIE");
+            } else if (resultCheckWinner === false) {
+              setDisplayContainerState(containerStateType.ArrowButtons);
+              setPlayState(playStateType.tileShift);
+            }
           }
         }}
       >
