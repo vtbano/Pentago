@@ -54,8 +54,8 @@ const Space = ({
               setDisplayContainerState(containerStateType.TieState);
               console.log(currentPlayer, "TIE");
             } else if (resultCheckWinner === false) {
-              setDisplayContainerState(containerStateType.ArrowButtons);
               setPlayState(playStateType.tileShift);
+              setDisplayContainerState(containerStateType.ArrowButtons);
             }
           }
         }}

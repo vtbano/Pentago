@@ -209,7 +209,6 @@ const Gameboard = ({ players }) => {
           currentPlayer={currentPlayer}
           setCurrentPlayer={setCurrentPlayer}
           checkWinner={checkWinner}
-          displayContainerState={displayContainerState}
           setDisplayContainerState={setDisplayContainerState}
           containerStateType={containerStateType}
         />
@@ -233,8 +232,6 @@ const Gameboard = ({ players }) => {
               board={board}
               setBoard={setBoard}
               markPosition={markPosition}
-              // rotateBlockSelected={rotateBlockSelected}
-              // setMarked={setMarked}
               setBlockSelected={setBlockSelected}
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
@@ -250,7 +247,7 @@ const Gameboard = ({ players }) => {
         })}
       </div>
       <div className="additional-detail-box">
-        {displayContainer(displayContainerState)};
+        {displayContainer(displayContainerState)}
       </div>
     </section>
   );

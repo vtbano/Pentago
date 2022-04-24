@@ -9,8 +9,7 @@ const ArrowButtons = ({
   players,
   currentPlayer,
   setCurrentPlayer,
-  // setMarked,
-  displayContainerState,
+  checkWinner,
   setDisplayContainerState,
   containerStateType,
 }) => {
@@ -29,10 +28,28 @@ const ArrowButtons = ({
         className="left-arrow"
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 90);
-          //add checkWinner & if statements
-          setDisplayContainerState(containerStateType.ActivePlayer);
-          setPlayState(playStateType.markSpace);
-          nextPlayer(currentPlayer, players);
+
+          const newBoard = rotateBlockSelected(blockSelected, board, 90);
+
+          const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
+          console.log(
+            "result of checkWinner after left rotatation",
+            resultCheckWinner
+          );
+          if (resultCheckWinner === true) {
+            setPlayState(playStateType.win);
+            setDisplayContainerState(containerStateType.WinState);
+            console.log(currentPlayer, "WINS");
+          } else if (resultCheckWinner === 0) {
+            setPlayState(playStateType.tie);
+            setDisplayContainerState(containerStateType.TieState);
+            console.log(currentPlayer, "TIE");
+          } else if (resultCheckWinner === false) {
+            console.log("Change to Mark Space");
+            setPlayState(playStateType.markSpace);
+            nextPlayer(currentPlayer, players);
+            setDisplayContainerState(containerStateType.ActivePlayer);
+          }
         }}
       />
       <img
@@ -41,10 +58,27 @@ const ArrowButtons = ({
         className="right-arrow"
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 270);
-          //add checkWinner & if statements
-          setDisplayContainerState(containerStateType.ActivePlayer);
-          setPlayState(playStateType.markSpace);
-          nextPlayer(currentPlayer, players);
+
+          const newBoard = rotateBlockSelected(blockSelected, board, 270);
+          const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
+          console.log(
+            "result of checkWinner after right rotatation",
+            resultCheckWinner
+          );
+          if (resultCheckWinner === true) {
+            setPlayState(playStateType.win);
+            setDisplayContainerState(containerStateType.WinState);
+            console.log(currentPlayer, "WINS");
+          } else if (resultCheckWinner === 0) {
+            setPlayState(playStateType.tie);
+            setDisplayContainerState(containerStateType.TieState);
+            console.log(currentPlayer, "TIE");
+          } else if (resultCheckWinner === false) {
+            console.log("Change to Mark Space");
+            setPlayState(playStateType.markSpace);
+            nextPlayer(currentPlayer, players);
+            setDisplayContainerState(containerStateType.ActivePlayer);
+          }
         }}
       />
       <p>

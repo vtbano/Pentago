@@ -3,7 +3,7 @@ import React from "react";
 const WinState = ({ currentPlayer }) => {
   return (
     <section className="win-container">
-      <p>{currentPlayer} WINS!</p>
+      <p>{currentPlayer.name} WINS!</p>
       <img
         src="./images/icons8-playAgainGold.png"
         alt="next button"

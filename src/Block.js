@@ -30,8 +30,6 @@ const Block = ({
   // };
 
   return (
-    //this will need to become a button or need to be encapsulated in a button
-
     <div
       className={isActive ? "choose-block" : "block"}
       onClick={(e) => {
