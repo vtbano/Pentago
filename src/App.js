@@ -5,18 +5,22 @@ import Gameboard from "./GameBoard.js";
 import OptionButtons from "./OptionButtons.js";
 import StartGame from "./StartGame.js";
 import WinGame from "./WinGame.js";
+import gameResultType from "./gameResultType.js";
 
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
   const [topContainer, setTopContainer] = useState("startGame");
+  const [winPlayer, setWinPlayer] = useState(null);
   // const [currentPlayer, setCurrentPlayer] = useState(players[0]); //curent player, then when another turn is done when you will change to next player /loop back to the beginning
 
-  const topContainerDisplay = (topContainer, currentPlayer) => {
+  const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
+
+  const topContainerDisplay = (topContainer) => {
     if (topContainer === "startGame") {
       return <StartGame />;
     } else if (topContainer === "winGame") {
-      return <WinGame currentPlayer={currentPlayer} />;
+      return <WinGame />;
     }
   };
 
@@ -47,7 +51,8 @@ const App = () => {
               topContainer={topContainer}
               display={display}
               setDisplay={setDisplay}
-              WinGame={<WinGame />}
+              setGameResult={setGameResult}
+              setWinPlayer={setWinPlayer}
             />
           ) : (
             <LandingPageButtons
@@ -66,6 +71,13 @@ const App = () => {
             setTopContainer={setTopContainer}
             topContainerDisplay={topContainerDisplay}
             topContainer={topContainer}
+            resetGame={() => {
+              setGameResult(gameResultType.InitialGame);
+              setPlayers([]);
+              setDisplay(false);
+              setTopContainer("startGame");
+              topContainerDisplay(topContainer);
+            }}
           />
         </article>
       </section>

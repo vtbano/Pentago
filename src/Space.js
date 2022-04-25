@@ -1,4 +1,5 @@
 import React from "react";
+import gameResultType from "./gameResultType.js";
 
 const Space = ({
   spaceSet,
@@ -14,6 +15,8 @@ const Space = ({
   checkWinner,
   setDisplayContainerState,
   containerStateType,
+  setGameResult,
+  setWinPlayer,
 }) => {
   return (
     <div className="space">
@@ -46,11 +49,14 @@ const Space = ({
             if (resultCheckWinner === true) {
               setPlayState(playStateType.win);
               setDisplayContainerState(containerStateType.WinState);
+              setGameResult(gameResultType.Win);
+              setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner
               console.log(currentPlayer, "WINS");
               return currentPlayer;
             } else if (resultCheckWinner === 0) {
               setPlayState(playStateType.tie);
               setDisplayContainerState(containerStateType.TieState);
+              setGameResult(gameResultType.Tie);
               console.log(currentPlayer, "TIE");
             } else if (resultCheckWinner === false) {
               setPlayState(playStateType.tileShift);

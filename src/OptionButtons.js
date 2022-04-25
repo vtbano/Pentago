@@ -1,12 +1,6 @@
 import React from "react";
 
-const OptionButtons = ({
-  setDisplay,
-  setPlayers,
-  setTopContainer,
-  topContainerDisplay,
-  topContainer,
-}) => {
+const OptionButtons = ({ resetGame }) => {
   return (
     <section className="footer-buttons">
       <img
@@ -14,10 +8,7 @@ const OptionButtons = ({
         alt="restart button"
         className="restart-button"
         onClick={() => {
-          setDisplay(false);
-          setTopContainer("startGame");
-          topContainerDisplay(topContainer);
-          setPlayers([]);
+          resetGame();
         }}
       />
       <img

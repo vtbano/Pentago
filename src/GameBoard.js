@@ -47,6 +47,8 @@ const Gameboard = ({
   topContainerDisplay,
   topContainer,
   setDisplay,
+  setGameResult,
+  setWinPlayer,
 }) => {
   const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
@@ -217,6 +219,8 @@ const Gameboard = ({
           checkWinner={checkWinner}
           setDisplayContainerState={setDisplayContainerState}
           containerStateType={containerStateType}
+          setGameResult={setGameResult}
+          setWinPlayer={setWinPlayer}
         />
       );
     } else if (displayContainerState === "WinState") {
@@ -257,6 +261,7 @@ const Gameboard = ({
               setBoard={setBoard}
               markPosition={markPosition}
               setBlockSelected={setBlockSelected}
+              blockSelected={blockSelected}
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
               playState={playState}
@@ -266,6 +271,8 @@ const Gameboard = ({
               displayContainerState={displayContainerState}
               setDisplayContainerState={setDisplayContainerState}
               containerStateType={containerStateType}
+              setGameResult={setGameResult}
+              setWinPlayer={setWinPlayer}
             />
           ); //this index is the one that was made when I mapped it out
         })}

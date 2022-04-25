@@ -11,6 +11,7 @@ const Block = ({
   markPosition,
   // setMarked,
   setBlockSelected,
+  blockSelected,
   currentPlayer,
   setCurrentPlayer,
   playState,
@@ -20,6 +21,8 @@ const Block = ({
   displayContainerState,
   setDisplayContainerState,
   containerStateType,
+  setGameResult,
+  setWinPlayer,
 }) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
@@ -31,7 +34,7 @@ const Block = ({
 
   return (
     <div
-      className={isActive ? "choose-block" : "block"}
+      className={blockSelected === index ? "choose-block" : "block"}
       onClick={(e) => {
         e.preventDefault();
 
@@ -63,6 +66,8 @@ const Block = ({
             displayContainerState={displayContainerState}
             setDisplayContainerState={setDisplayContainerState}
             containerStateType={containerStateType}
+            setGameResult={setGameResult}
+            setWinPlayer={setWinPlayer}
           />
         );
       })}
