@@ -5,6 +5,7 @@ import Gameboard from "./GameBoard.js";
 import OptionButtons from "./OptionButtons.js";
 import StartGame from "./StartGame.js";
 import WinGame from "./WinGame.js";
+import TieGameRestart from "./TieGameRestart.js";
 import gameResultType from "./gameResultType.js";
 
 const App = () => {
@@ -12,15 +13,15 @@ const App = () => {
   const [players, setPlayers] = useState([]);
   const [topContainer, setTopContainer] = useState("startGame");
   const [winPlayer, setWinPlayer] = useState(null);
-  // const [currentPlayer, setCurrentPlayer] = useState(players[0]); //curent player, then when another turn is done when you will change to next player /loop back to the beginning
-
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
 
-  const topContainerDisplay = (topContainer) => {
-    if (topContainer === "startGame") {
+  const topContainerDisplay = (winPlayer, gameResult) => {
+    if (gameResult === "InitialGame") {
       return <StartGame />;
-    } else if (topContainer === "winGame") {
-      return <WinGame />;
+    } else if (gameResult === "Tie") {
+      return <TieGameRestart />;
+    } else if (gameResult === "WinGame") {
+      return <WinGame winPlayer={winPlayer} />;
     }
   };
 
@@ -43,8 +44,6 @@ const App = () => {
           {display ? (
             <Gameboard
               players={players}
-              // currentPlayer={currentPlayer}
-              // setCurrentPlayer={setCurrentPlayer}
               setPlayers={setPlayers}
               setTopContainer={setTopContainer}
               topContainerDisplay={topContainerDisplay}
