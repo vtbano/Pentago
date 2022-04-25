@@ -1,6 +1,13 @@
 import React from "react";
+import App from "./App.js";
 
-const TieState = ({ currentPlayer }) => {
+const TieState = ({
+  setTopContainer,
+  topContainerDisplay,
+  topContainer,
+  setDisplay,
+  setPlayers,
+}) => {
   return (
     <section className="Tie-container">
       <p>TIE GAME</p>
@@ -9,7 +16,13 @@ const TieState = ({ currentPlayer }) => {
         alt="next button"
         className="next-button"
         onClick={() => {
-          // NEW COMPONENT
+          //   return (
+          //   setDisplay(false);
+          //   setTopContainer("startGame");
+          //   topContainerDisplay(topContainer);
+          //   setPlayers([]);
+          //   // <App />)
+          //   )
         }}
       />
     </section>

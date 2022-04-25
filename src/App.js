@@ -3,10 +3,21 @@ import "./App.css";
 import LandingPageButtons from "./LandingPageButtons.js";
 import Gameboard from "./GameBoard.js";
 import OptionButtons from "./OptionButtons.js";
+import StartGame from "./StartGame.js";
+import WinGame from "./WinGame.js";
 
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
+  const [topContainer, setTopContainer] = useState("startGame");
+
+  const topContainerDisplay = (topContainer) => {
+    if (topContainer === "startGame") {
+      return <StartGame />;
+    } else if (topContainer === "winGame") {
+      return <WinGame />;
+    }
+  };
 
   return (
     <React.Fragment>
@@ -25,17 +36,33 @@ const App = () => {
         {/* <div className="move-update-container">Move Update Container</div> */}
         <div className="container">
           {display ? (
-            <Gameboard players={players} />
+            <Gameboard
+              players={players}
+              setPlayers={setPlayers}
+              setTopContainer={setTopContainer}
+              topContainerDisplay={topContainerDisplay}
+              topContainer={topContainer}
+              display={display}
+              setDisplay={setDisplay}
+            />
           ) : (
             <LandingPageButtons
               display={display}
               setDisplay={setDisplay}
               setPlayers={setPlayers}
+              topContainerDisplay={topContainerDisplay}
+              topContainer={topContainer}
             />
           )}
         </div>
         <article className="option-buttons">
-          <OptionButtons />
+          <OptionButtons
+            setDisplay={setDisplay}
+            setPlayers={setPlayers}
+            setTopContainer={setTopContainer}
+            topContainerDisplay={topContainerDisplay}
+            topContainer={topContainer}
+          />
         </article>
       </section>
       <footer>

@@ -49,6 +49,7 @@ const Space = ({
               setPlayState(playStateType.win);
               setDisplayContainerState(containerStateType.WinState);
               console.log(currentPlayer, "WINS");
+              return currentPlayer;
             } else if (resultCheckWinner === 0) {
               setPlayState(playStateType.tie);
               setDisplayContainerState(containerStateType.TieState);

@@ -1,15 +1,30 @@
 import React from "react";
+import App from "./App.js";
 
-const WinState = ({ currentPlayer }) => {
+const WinState = ({
+  currentPlayer,
+  setTopContainer,
+  topContainerDisplay,
+  topContainer,
+  setDisplay,
+  setPlayers,
+}) => {
   return (
     <section className="win-container">
-      <p>{currentPlayer.name} WINS!</p>
+      {/* <p>{currentPlayer.name} WINS!</p> */}
       <img
         src="./images/icons8-playAgainGold.png"
         alt="next button"
         className="next-button"
         onClick={() => {
-          // NEW COMPONENT
+          return (
+            <App
+              setDisplay={setDisplay(false)}
+              setTopContainer={setTopContainer("winGame")}
+              topContainerDisplay={topContainerDisplay(topContainer)}
+              setPlayers={setPlayers([])}
+            />
+          );
         }}
       />
     </section>

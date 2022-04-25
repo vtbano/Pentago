@@ -1,18 +1,16 @@
 import React from "react";
 
-const LandingPageButtons = ({ setDisplay, setPlayers }) => {
+const LandingPageButtons = ({
+  setDisplay,
+  setPlayers,
+  topContainerDisplay,
+  topContainer,
+}) => {
   return (
     <section className="player-option-buttons">
-      <img
-        src="./images/Pentago-Landingpage-Img.png"
-        alt="Pentago Block with 9 spaces tilted"
-        className="pentago-landingpage-block"
-      />
-
-      <p className="welcome-msg">
-        Welcome to the online version of Pentago, the mind twisting game from
-        Sweden.
-      </p>
+      <div className="landing-page-top-container">
+        {topContainerDisplay(topContainer)}
+      </div>
       <button
         className="two-player"
         onClick={() => {

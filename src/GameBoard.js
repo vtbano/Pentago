@@ -40,7 +40,14 @@ const rot90 = (block) =>
       .reverse();
   });
 
-const Gameboard = ({ players }) => {
+const Gameboard = ({
+  players,
+  setPlayers,
+  setTopContainer,
+  topContainerDisplay,
+  topContainer,
+  setDisplay,
+}) => {
   const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
   const boardBlocks = flatten(board);
@@ -214,9 +221,26 @@ const Gameboard = ({ players }) => {
         />
       );
     } else if (displayContainerState === "WinState") {
-      return <WinState currentPlayer={currentPlayer} />;
+      return (
+        <WinState
+          currentPlayer={currentPlayer}
+          setTopContainer={setTopContainer}
+          topContainerDisplay={topContainerDisplay}
+          topContainer={topContainer}
+          setDisplay={setDisplay}
+          setPlayers={setPlayers}
+        />
+      );
     } else if (displayContainerState === "TieState") {
-      return <TieState />;
+      return (
+        <TieState
+          setTopContainer={setTopContainer}
+          topContainerDisplay={topContainerDisplay}
+          topContainer={topContainer}
+          setDisplay={setDisplay}
+          setPlayers={setPlayers}
+        />
+      );
     }
   };
 
