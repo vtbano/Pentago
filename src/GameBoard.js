@@ -52,7 +52,6 @@ const Gameboard = ({
   const { flatten } = batteries;
   const boardBlocks = flatten(board);
   // console.log("gameBoard.js console result boardBlocks 3x3:", boardBlocks);
-
   const [currentPlayer, setCurrentPlayer] = useState(players[0]); //curent player, then when another turn is done when you will change to next player /loop back to the beginning
   const [blockSelected, setBlockSelected] = useState(0);
 
@@ -234,6 +233,7 @@ const Gameboard = ({
     } else if (displayContainerState === "TieState") {
       return (
         <TieState
+          currentPlayer={currentPlayer}
           setTopContainer={setTopContainer}
           topContainerDisplay={topContainerDisplay}
           topContainer={topContainer}

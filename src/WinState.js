@@ -1,5 +1,5 @@
 import React from "react";
-import App from "./App.js";
+import WinGame from "./WinGame.js";
 
 const WinState = ({
   currentPlayer,
@@ -8,23 +8,21 @@ const WinState = ({
   topContainer,
   setDisplay,
   setPlayers,
+  // WinGame,
 }) => {
   return (
     <section className="win-container">
-      {/* <p>{currentPlayer.name} WINS!</p> */}
+      <p>{currentPlayer.name} WINS!</p>
       <img
         src="./images/icons8-playAgainGold.png"
         alt="next button"
         className="next-button"
         onClick={() => {
-          return (
-            <App
-              setDisplay={setDisplay(false)}
-              setTopContainer={setTopContainer("winGame")}
-              topContainerDisplay={topContainerDisplay(topContainer)}
-              setPlayers={setPlayers([])}
-            />
-          );
+          setDisplay(false);
+          setTopContainer("winGame");
+          topContainerDisplay(topContainer, currentPlayer);
+          setPlayers([]);
+          return <WinGame currentPlayer={currentPlayer} />;
         }}
       />
     </section>

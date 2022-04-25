@@ -14,10 +14,12 @@ const ArrowButtons = ({
   containerStateType,
 }) => {
   const nextPlayer = (currentPlayer, players) => {
+    console.log("Next Player:", currentPlayer, players);
     if (currentPlayer.marker % players.length === 0) {
       return setCurrentPlayer(players[0]);
     } else {
-      setCurrentPlayer(players[currentPlayer.marker]);
+      const newPlayer = players[currentPlayer.marker];
+      return setCurrentPlayer(newPlayer);
     }
   };
 
@@ -49,8 +51,9 @@ const ArrowButtons = ({
           } else if (resultCheckWinner === false) {
             console.log("Change to Mark Space");
             setPlayState(playStateType.markSpace);
-            nextPlayer(currentPlayer, players);
             setDisplayContainerState(containerStateType.ActivePlayer);
+            console.log("if statement call", currentPlayer, players);
+            nextPlayer(currentPlayer, players);
           }
         }}
       />

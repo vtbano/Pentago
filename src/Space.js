@@ -7,13 +7,11 @@ const Space = ({
   board,
   setBoard,
   markPosition,
-  setMarked,
   currentPlayer,
   playState,
   setPlayState,
   playStateType,
   checkWinner,
-  displayContainerState,
   setDisplayContainerState,
   containerStateType,
 }) => {

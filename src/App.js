@@ -10,12 +10,13 @@ const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
   const [topContainer, setTopContainer] = useState("startGame");
+  // const [currentPlayer, setCurrentPlayer] = useState(players[0]); //curent player, then when another turn is done when you will change to next player /loop back to the beginning
 
-  const topContainerDisplay = (topContainer) => {
+  const topContainerDisplay = (topContainer, currentPlayer) => {
     if (topContainer === "startGame") {
       return <StartGame />;
     } else if (topContainer === "winGame") {
-      return <WinGame />;
+      return <WinGame currentPlayer={currentPlayer} />;
     }
   };
 
@@ -38,12 +39,15 @@ const App = () => {
           {display ? (
             <Gameboard
               players={players}
+              // currentPlayer={currentPlayer}
+              // setCurrentPlayer={setCurrentPlayer}
               setPlayers={setPlayers}
               setTopContainer={setTopContainer}
               topContainerDisplay={topContainerDisplay}
               topContainer={topContainer}
               display={display}
               setDisplay={setDisplay}
+              WinGame={<WinGame />}
             />
           ) : (
             <LandingPageButtons

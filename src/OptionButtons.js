@@ -1,13 +1,12 @@
 import React from "react";
-import App from "./App";
 
-const OptionButtons = (
+const OptionButtons = ({
   setDisplay,
   setPlayers,
   setTopContainer,
   topContainerDisplay,
-  topContainer
-) => {
+  topContainer,
+}) => {
   return (
     <section className="footer-buttons">
       <img
@@ -19,14 +18,6 @@ const OptionButtons = (
           setTopContainer("startGame");
           topContainerDisplay(topContainer);
           setPlayers([]);
-
-          // <App
-          //   setDisplay={setDisplay(false)}
-          //   setTopContainer={setTopContainer("startGame")}
-          //   topContainerDisplay={topContainerDisplay(topContainer)}
-          //   setPlayers={setPlayers([])}
-          // />
-          // );
         }}
       />
       <img
