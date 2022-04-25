@@ -11,11 +11,10 @@ import gameResultType from "./gameResultType.js";
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
-  const [topContainer, setTopContainer] = useState("startGame");
   const [winPlayer, setWinPlayer] = useState(null);
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
 
-  const topContainerDisplay = (winPlayer, gameResult) => {
+  const topContainerDisplay = (gameResult, winPlayer) => {
     if (gameResult === "InitialGame") {
       return <StartGame />;
     } else if (gameResult === "Tie") {
@@ -45,9 +44,9 @@ const App = () => {
             <Gameboard
               players={players}
               setPlayers={setPlayers}
-              setTopContainer={setTopContainer}
+              // setTopContainer={setTopContainer}
               topContainerDisplay={topContainerDisplay}
-              topContainer={topContainer}
+              // topContainer={topContainer}
               display={display}
               setDisplay={setDisplay}
               setGameResult={setGameResult}
@@ -58,8 +57,8 @@ const App = () => {
               display={display}
               setDisplay={setDisplay}
               setPlayers={setPlayers}
-              topContainerDisplay={topContainerDisplay}
-              topContainer={topContainer}
+              topContainer={() => topContainerDisplay(gameResult, winPlayer)}
+              // topContainer={topContainer}
             />
           )}
         </div>
@@ -67,15 +66,11 @@ const App = () => {
           <OptionButtons
             setDisplay={setDisplay}
             setPlayers={setPlayers}
-            setTopContainer={setTopContainer}
-            topContainerDisplay={topContainerDisplay}
-            topContainer={topContainer}
+            topContainer={() => topContainerDisplay(gameResult, winPlayer)}
             resetGame={() => {
               setGameResult(gameResultType.InitialGame);
               setPlayers([]);
               setDisplay(false);
-              setTopContainer("startGame");
-              topContainerDisplay(topContainer);
             }}
           />
         </article>

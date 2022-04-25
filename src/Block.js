@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { batteries } from "./batteries.js";
 import Space from "./Space.js";
 import "./App.css";
@@ -27,10 +27,6 @@ const Block = ({
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
   // console.log("block.js console result boardSpaces:", boardSpaces);
-  const [isActive, setActive] = useState(false);
-  // const handleToggle = (index) => {
-  //   setActive(!isActive);
-  // };
 
   return (
     <div
@@ -39,10 +35,6 @@ const Block = ({
         e.preventDefault();
 
         if (playState === playStateType.tileShift) {
-          setActive(true);
-          // {
-          //   handleToggle(index); // Fix the toggle so that it removes the class from the previous index
-          // }
           return setBlockSelected(index);
         }
       }}

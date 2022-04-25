@@ -1,16 +1,9 @@
 import React from "react";
 
-const LandingPageButtons = ({
-  setDisplay,
-  setPlayers,
-  topContainerDisplay,
-  topContainer,
-}) => {
+const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
   return (
     <section className="player-option-buttons">
-      <div className="landing-page-top-container">
-        {topContainerDisplay(topContainer)}
-      </div>
+      <div className="landing-page-top-container">{topContainer()}</div>
       <button
         className="two-player"
         onClick={() => {

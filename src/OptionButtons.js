@@ -1,6 +1,6 @@
 import React from "react";
 
-const OptionButtons = ({ resetGame }) => {
+const OptionButtons = ({ resetGame, topContainer }) => {
   return (
     <section className="footer-buttons">
       <img
@@ -8,6 +8,7 @@ const OptionButtons = ({ resetGame }) => {
         alt="restart button"
         className="restart-button"
         onClick={() => {
+          topContainer();
           resetGame();
         }}
       />
