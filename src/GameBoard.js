@@ -4,7 +4,6 @@ import boardArray from "./boardArray.js";
 import Block from "./Block.js";
 import ArrowButtons from "./ArrowButtons.js";
 import ActivePlayer from "./ActivePlayer";
-// import gameResultType from "./gameResultType.js";
 import WinState from "./WinState.js";
 import TieState from "./TieState.js";
 
@@ -76,6 +75,7 @@ const Gameboard = ({
     containerStateType.ActivePlayer
   );
 
+  //this funtion will return the index of the element identified. Elements are indentified by a number (1,2,3,4)
   const elementsIndex = (arr, elem) => {
     return arr.reduce((finalArray, val, idx) => {
       return elem === val ? finalArray.concat(idx) : finalArray;
@@ -102,13 +102,15 @@ const Gameboard = ({
     const indexofRow = range(0, numRows - 1);
     return newRows(indexofRow, board);
   };
-
+  //this function checks if the board is full
   const fullBoard = (board) => {
     const flattenBoard1arr = flatten(flatten(flatten(board)));
     console.log(flattenBoard1arr);
     return flattenBoard1arr.every((space) => space !== 0);
   };
 
+  //this function measures whether the number of the same elements return is >=5 (i.e. the symbol 1 showed up 5 times in an array of 9).
+  //if it does then it checks whether it is 5 in a row by calling indexDiff otherwise, its false since there isn't 5 consecutive elements in a row
   const fiveMarkersWin = (boardFlattened, symbol) => {
     return boardFlattened.map((arr, index) => {
       arr = elementsIndex(arr, symbol);
@@ -132,15 +134,12 @@ const Gameboard = ({
     const boardRot90 = rot90(board);
     const boardRot180 = rot90(boardRot90);
     const boardRot270 = rot90(boardRot180);
-
     const rows = flattenBoardRows(board);
     const rows1 = flattenBoardRows(boardRot90);
     const rows2 = flattenBoardRows(boardRot180);
     const rows3 = flattenBoardRows(boardRot270);
-
     const numRows = board.length * board[0].length;
     const indexofRow = range(0, numRows - 1);
-
     return [
       topLeftDiag(indexofRow, rows),
       topLeftDiag(indexofRow, rows1),
@@ -149,6 +148,7 @@ const Gameboard = ({
     ];
   };
 
+  //this function checks if there is a winner
   const checkWinner = (board, marker) => {
     const boardFlattened9Rows = flattenBoardRows(board);
     const boardFlattened9Cols = flattenBoardRows(rot90(board));
@@ -167,6 +167,7 @@ const Gameboard = ({
     }
   };
 
+  //this function marks a position on the board in the Space component
   const markPosition = (marker, blockIndex, board, SpaceIndex) => {
     const boardBlocks = flatten(board);
     // console.log("board blocks:", boardBlocks);
@@ -186,6 +187,7 @@ const Gameboard = ({
     }
   };
 
+  //this function rotates the block selected in the ArrowButtons component
   const rotateBlockSelected = (blockIndex, board, direction) => {
     const boardBlocks = flatten(board);
     // console.log("board blocks:", boardBlocks[0]);
@@ -203,6 +205,8 @@ const Gameboard = ({
     }
   };
 
+  //this function determines what display should show up. Show it say who the active player is, should it give the option to rotate the board, OR
+  //should it state whether there is a winner or a tie and provide an option button to select to the next screen
   const displayContainer = (displayContainerstate) => {
     if (displayContainerState === "ActivePlayer") {
       return <ActivePlayer currentPlayer={currentPlayer} />;
@@ -250,6 +254,7 @@ const Gameboard = ({
     <section className="game-display-contents">
       <div className="game-board">
         {boardBlocks.map((blocks, index) => {
+          //this index is the one that was made when I mapped it out
           return (
             <Block
               block={blocks}
@@ -272,7 +277,7 @@ const Gameboard = ({
               setGameResult={setGameResult}
               setWinPlayer={setWinPlayer}
             />
-          ); //this index is the one that was made when I mapped it out
+          );
         })}
       </div>
       <div className="additional-detail-box">
