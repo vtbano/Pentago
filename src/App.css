@@ -32,7 +32,8 @@ header {
   display: grid;
   place-items: center;
 }
-.pentago-landingpage-block {
+.pentago-landingpage-block,
+.pentago-and-trophy {
   width: 10rem;
   height: 10rem;
 }
@@ -48,8 +49,11 @@ header {
 
 .winner-shoutOut {
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 100px;
+  left: 160px;
+  font-family: "Galindo", cursive;
+  font-size: 2rem;
+  color: #f9efbc;
 }
 .two-player,
 .three-player,

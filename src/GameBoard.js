@@ -4,8 +4,9 @@ import boardArray from "./boardArray.js";
 import Block from "./Block.js";
 import ArrowButtons from "./ArrowButtons.js";
 import ActivePlayer from "./ActivePlayer";
+// import gameResultType from "./gameResultType.js";
 import WinState from "./WinState.js";
-import TieState from "./TieState";
+import TieState from "./TieState.js";
 
 const { flatten, range } = batteries;
 
@@ -43,12 +44,12 @@ const rot90 = (block) =>
 const Gameboard = ({
   players,
   setPlayers,
-  setTopContainer,
   topContainerDisplay,
-  topContainer,
   setDisplay,
   setGameResult,
+  gameResult,
   setWinPlayer,
+  winPlayer,
 }) => {
   const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
@@ -227,9 +228,9 @@ const Gameboard = ({
       return (
         <WinState
           currentPlayer={currentPlayer}
-          setTopContainer={setTopContainer}
-          topContainerDisplay={topContainerDisplay}
-          topContainer={topContainer}
+          winPlayer={winPlayer}
+          gameResult={gameResult}
+          topContainer={() => topContainerDisplay(gameResult, winPlayer)}
           setDisplay={setDisplay}
           setPlayers={setPlayers}
         />
@@ -237,10 +238,7 @@ const Gameboard = ({
     } else if (displayContainerState === "TieState") {
       return (
         <TieState
-          currentPlayer={currentPlayer}
-          setTopContainer={setTopContainer}
-          topContainerDisplay={topContainerDisplay}
-          topContainer={topContainer}
+          topContainer={() => topContainerDisplay(gameResult, winPlayer)}
           setDisplay={setDisplay}
           setPlayers={setPlayers}
         />

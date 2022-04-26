@@ -50,7 +50,7 @@ const Space = ({
               setPlayState(playStateType.win);
               setDisplayContainerState(containerStateType.WinState);
               setGameResult(gameResultType.Win);
-              setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner
+              setWinPlayer(currentPlayer);
               console.log(currentPlayer, "WINS");
               return currentPlayer;
             } else if (resultCheckWinner === 0) {

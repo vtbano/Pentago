@@ -1,13 +1,6 @@
 import React from "react";
 
-const TieState = ({
-  setTopContainer,
-  topContainerDisplay,
-  topContainer,
-  currentPlayer,
-  setDisplay,
-  setPlayers,
-}) => {
+const TieState = ({ topContainer, setDisplay, setPlayers }) => {
   return (
     <section className="Tie-container">
       <p>TIE GAME</p>
@@ -17,8 +10,7 @@ const TieState = ({
         className="next-button"
         onClick={() => {
           setDisplay(false);
-          setTopContainer("startGame");
-          topContainerDisplay(topContainer, currentPlayer);
+          topContainer();
           setPlayers([]);
         }}
       />

@@ -1,28 +1,27 @@
 import React from "react";
-import WinGame from "./WinGame.js";
 
 const WinState = ({
   currentPlayer,
-  setTopContainer,
-  topContainerDisplay,
+  winPlayer,
+  gameResult,
   topContainer,
   setDisplay,
   setPlayers,
-  // WinGame,
 }) => {
   return (
     <section className="win-container">
-      <p>{currentPlayer.name} WINS!</p>
+      <p>{winPlayer.name} WINS!</p>
       <img
         src="./images/icons8-playAgainGold.png"
         alt="next button"
         className="next-button"
         onClick={() => {
+          console.log("WinState gameResult", gameResult);
+          console.log("winPlayer", winPlayer);
           setDisplay(false);
-          setTopContainer("winGame");
-          topContainerDisplay(topContainer, currentPlayer);
+          topContainer();
+          console.log("WinState", topContainer());
           setPlayers([]);
-          return <WinGame currentPlayer={currentPlayer} />;
         }}
       />
     </section>

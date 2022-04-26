@@ -1,6 +1,6 @@
 import React from "react";
 
-const WinGame = ({ currentPlayer }) => {
+const WinGame = ({ winPlayer }) => {
   return (
     <div className="top-container">
       <img
@@ -10,7 +10,7 @@ const WinGame = ({ currentPlayer }) => {
       />
       <div className="winner-shoutOut">
         PENTAGO CHAMP
-        {/* {currentPlayer.name} */}
+        {winPlayer.name}
       </div>
 
       <p className="winning-play-again-msg">

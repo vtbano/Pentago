@@ -19,7 +19,7 @@ const App = () => {
       return <StartGame />;
     } else if (gameResult === "Tie") {
       return <TieGameRestart />;
-    } else if (gameResult === "WinGame") {
+    } else if (gameResult === "Win") {
       return <WinGame winPlayer={winPlayer} />;
     }
   };
@@ -44,13 +44,12 @@ const App = () => {
             <Gameboard
               players={players}
               setPlayers={setPlayers}
-              // setTopContainer={setTopContainer}
               topContainerDisplay={topContainerDisplay}
-              // topContainer={topContainer}
-              display={display}
               setDisplay={setDisplay}
               setGameResult={setGameResult}
+              gameResult={gameResult}
               setWinPlayer={setWinPlayer}
+              winPlayer={winPlayer}
             />
           ) : (
             <LandingPageButtons

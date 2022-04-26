@@ -34,21 +34,16 @@ const ArrowButtons = ({
         className="left-arrow"
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 90);
-
           const newBoard = rotateBlockSelected(blockSelected, board, 90);
-
           const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
-          console.log(
-            "result of checkWinner after left rotatation",
-            resultCheckWinner // map out to checkWinnder for all players
-          );
+          // map out to checkWinnder for all players
+
           if (resultCheckWinner === true) {
             setPlayState(playStateType.win);
             setDisplayContainerState(containerStateType.WinState);
             setGameResult(gameResultType.Win);
             setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
             console.log(currentPlayer, "WINS");
-            return currentPlayer;
           } else if (resultCheckWinner === 0) {
             setPlayState(playStateType.tie);
             setDisplayContainerState(containerStateType.TieState);
@@ -79,10 +74,13 @@ const ArrowButtons = ({
           if (resultCheckWinner === true) {
             setPlayState(playStateType.win);
             setDisplayContainerState(containerStateType.WinState);
+            setGameResult(gameResultType.Win);
+            setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
             console.log(currentPlayer, "WINS");
           } else if (resultCheckWinner === 0) {
             setPlayState(playStateType.tie);
             setDisplayContainerState(containerStateType.TieState);
+            setGameResult(gameResultType.Tie);
             console.log(currentPlayer, "TIE");
           } else if (resultCheckWinner === false) {
             console.log("Change to Mark Space");
