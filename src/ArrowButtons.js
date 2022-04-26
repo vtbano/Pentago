@@ -26,6 +26,31 @@ const ArrowButtons = ({
     }
   };
 
+  const checkAllPlayers = (players, newBoard) => {
+    return players.filter((player) => {
+      const resultCheckWinner = checkWinner(newBoard, player.marker);
+      if (resultCheckWinner === true) {
+        setPlayState(playStateType.win);
+        setDisplayContainerState(containerStateType.WinState);
+        setGameResult(gameResultType.Win);
+        setWinPlayer(player); //this will change depending on who the winner is from resultCheckWinner mapping
+        console.log(player, "WINS");
+      } else if (resultCheckWinner === 0) {
+        setPlayState(playStateType.tie);
+        setDisplayContainerState(containerStateType.TieState);
+        setGameResult(gameResultType.Tie);
+        console.log("TIE");
+      } else if (resultCheckWinner === false) {
+        console.log("Change to Mark Space");
+        setPlayState(playStateType.markSpace);
+        setDisplayContainerState(containerStateType.ActivePlayer);
+        console.log("if statement call", currentPlayer, players);
+        nextPlayer(currentPlayer, players);
+      }
+      return resultCheckWinner;
+    });
+  };
+
   return (
     <section className="arrow-buttons">
       <img
@@ -35,27 +60,28 @@ const ArrowButtons = ({
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 90);
           const newBoard = rotateBlockSelected(blockSelected, board, 90);
-          const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
-          // map out to checkWinnder for all players
+          // const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
+          checkAllPlayers(players, newBoard);
+          console.log("checkAllPlayers:", checkAllPlayers(players, newBoard));
 
-          if (resultCheckWinner === true) {
-            setPlayState(playStateType.win);
-            setDisplayContainerState(containerStateType.WinState);
-            setGameResult(gameResultType.Win);
-            setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
-            console.log(currentPlayer, "WINS");
-          } else if (resultCheckWinner === 0) {
-            setPlayState(playStateType.tie);
-            setDisplayContainerState(containerStateType.TieState);
-            setGameResult(gameResultType.Tie);
-            console.log(currentPlayer, "TIE");
-          } else if (resultCheckWinner === false) {
-            console.log("Change to Mark Space");
-            setPlayState(playStateType.markSpace);
-            setDisplayContainerState(containerStateType.ActivePlayer);
-            console.log("if statement call", currentPlayer, players);
-            nextPlayer(currentPlayer, players);
-          }
+          // if (resultCheckWinner === true) {
+          //   setPlayState(playStateType.win);
+          //   setDisplayContainerState(containerStateType.WinState);
+          //   setGameResult(gameResultType.Win);
+          //   setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
+          //   console.log(currentPlayer, "WINS");
+          // } else if (resultCheckWinner === 0) {
+          //   setPlayState(playStateType.tie);
+          //   setDisplayContainerState(containerStateType.TieState);
+          //   setGameResult(gameResultType.Tie);
+          //   console.log("TIE");
+          // } else if (resultCheckWinner === false) {
+          //   console.log("Change to Mark Space");
+          //   setPlayState(playStateType.markSpace);
+          //   setDisplayContainerState(containerStateType.ActivePlayer);
+          //   console.log("if statement call", currentPlayer, players);
+          //   nextPlayer(currentPlayer, players);
+          // }
         }}
       />
       <img

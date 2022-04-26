@@ -231,7 +231,6 @@ const Gameboard = ({
     } else if (displayContainerState === "WinState") {
       return (
         <WinState
-          currentPlayer={currentPlayer}
           winPlayer={winPlayer}
           gameResult={gameResult}
           topContainer={() => topContainerDisplay(gameResult, winPlayer)}

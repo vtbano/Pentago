@@ -1,7 +1,6 @@
 import React from "react";
 
 const WinState = ({
-  currentPlayer,
   winPlayer,
   gameResult,
   topContainer,

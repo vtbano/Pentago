@@ -10,7 +10,7 @@ const WinGame = ({ winPlayer }) => {
       />
       <div className="winner-shoutOut">
         PENTAGO CHAMP
-        {winPlayer.name}
+        <p>{winPlayer.name}</p>
       </div>
 
       <p className="winning-play-again-msg">
