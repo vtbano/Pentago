@@ -32,26 +32,6 @@ const ArrowButtons = ({
     });
   };
 
-  // console.log("Current checkAll PLAYER:", player);
-  // if (resultCheckWinner === true) {
-  //   setPlayState(playStateType.win);
-  //   setDisplayContainerState(containerStateType.WinState);
-  //   setGameResult(gameResultType.Win);
-  //   setWinPlayer(player); //this will change depending on who the winner is from resultCheckWinner mapping
-  //   console.log(player, "WINS");
-  // } else if (resultCheckWinner === 0) {
-  //   setPlayState(playStateType.tie);
-  //   setDisplayContainerState(containerStateType.TieState);
-  //   setGameResult(gameResultType.Tie);
-  //   console.log("TIE");
-  // } else if (resultCheckWinner === false) {
-  //   console.log("Change to Mark Space");
-  //   setPlayState(playStateType.markSpace);
-  //   setDisplayContainerState(containerStateType.ActivePlayer);
-  //   console.log("if statement call", currentPlayer, players);
-  //   nextPlayer(currentPlayer, players);
-  // }
-
   return (
     <section className="arrow-buttons">
       <img
@@ -64,9 +44,9 @@ const ArrowButtons = ({
           const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
           const checkAllPlayersArray = checkAllPlayers(players, newBoard);
           const checkAllPlayersArrayLength = checkAllPlayersArray.length;
-          console.log("Winning Player:", checkAllPlayersArray);
+          console.log("Winning Player Left Click:", checkAllPlayersArray);
           console.log(
-            "checkAll Players Array Length:",
+            "checkAll Players Array Length Left Click:",
             checkAllPlayersArrayLength
           );
 
@@ -75,7 +55,7 @@ const ArrowButtons = ({
             setPlayState(playStateType.win);
             setDisplayContainerState(containerStateType.WinState);
             setGameResult(gameResultType.Win);
-            setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
+            setWinPlayer(currentPlayer[0]); //this will change depending on who the winner is from resultCheckWinner mapping
             console.log(currentPlayer, "WINS");
           } else if (
             checkAllPlayersArrayLength <= 0 &&
@@ -92,28 +72,8 @@ const ArrowButtons = ({
             console.log("Change to Mark Space");
             setPlayState(playStateType.markSpace);
             setDisplayContainerState(containerStateType.ActivePlayer);
-            console.log("if statement call", currentPlayer, players);
             nextPlayer(currentPlayer, players);
           }
-
-          // if (resultCheckWinner === true) {
-          //   setPlayState(playStateType.win);
-          //   setDisplayContainerState(containerStateType.WinState);
-          //   setGameResult(gameResultType.Win);
-          //   setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
-          //   console.log(currentPlayer, "WINS");
-          // } else if (resultCheckWinner === 0) {
-          //   setPlayState(playStateType.tie);
-          //   setDisplayContainerState(containerStateType.TieState);
-          //   setGameResult(gameResultType.Tie);
-          //   console.log("TIE");
-          // } else if (resultCheckWinner === false) {
-          //   console.log("Change to Mark Space");
-          //   setPlayState(playStateType.markSpace);
-          //   setDisplayContainerState(containerStateType.ActivePlayer);
-          //   console.log("if statement call", currentPlayer, players);
-          //   nextPlayer(currentPlayer, players);
-          // }
         }}
       />
       <img
@@ -125,26 +85,38 @@ const ArrowButtons = ({
 
           const newBoard = rotateBlockSelected(blockSelected, board, 270);
           const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
+
+          const checkAllPlayersArray = checkAllPlayers(players, newBoard);
+          const checkAllPlayersArrayLength = checkAllPlayersArray.length;
+          console.log("Winning Player Right Click:", checkAllPlayersArray);
           console.log(
-            "result of checkWinner after right rotatation",
-            resultCheckWinner
+            "checkAll Players Array Length Right Click:",
+            checkAllPlayersArrayLength
           );
-          if (resultCheckWinner === true) {
+
+          if (checkAllPlayersArrayLength > 0) {
+            currentPlayer = checkAllPlayersArray;
             setPlayState(playStateType.win);
             setDisplayContainerState(containerStateType.WinState);
             setGameResult(gameResultType.Win);
-            setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
+            setWinPlayer(currentPlayer[0]); //this will change depending on who the winner is from resultCheckWinner mapping
             console.log(currentPlayer, "WINS");
-          } else if (resultCheckWinner === 0) {
+          } else if (
+            checkAllPlayersArrayLength <= 0 &&
+            resultCheckWinner === 0
+          ) {
             setPlayState(playStateType.tie);
             setDisplayContainerState(containerStateType.TieState);
             setGameResult(gameResultType.Tie);
-            console.log(currentPlayer, "TIE");
-          } else if (resultCheckWinner === false) {
+            console.log("TIE");
+          } else if (
+            checkAllPlayersArrayLength <= 0 &&
+            resultCheckWinner === false
+          ) {
             console.log("Change to Mark Space");
             setPlayState(playStateType.markSpace);
-            nextPlayer(currentPlayer, players);
             setDisplayContainerState(containerStateType.ActivePlayer);
+            nextPlayer(currentPlayer, players);
           }
         }}
       />
