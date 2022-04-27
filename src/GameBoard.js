@@ -105,7 +105,6 @@ const Gameboard = ({
   //this function checks if the board is full
   const fullBoard = (board) => {
     const flattenBoard1arr = flatten(flatten(flatten(board)));
-    console.log(flattenBoard1arr);
     return flattenBoard1arr.every((space) => space !== 0);
   };
 

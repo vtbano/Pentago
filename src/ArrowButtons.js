@@ -28,28 +28,29 @@ const ArrowButtons = ({
 
   const checkAllPlayers = (players, newBoard) => {
     return players.filter((player) => {
-      const resultCheckWinner = checkWinner(newBoard, player.marker);
-      if (resultCheckWinner === true) {
-        setPlayState(playStateType.win);
-        setDisplayContainerState(containerStateType.WinState);
-        setGameResult(gameResultType.Win);
-        setWinPlayer(player); //this will change depending on who the winner is from resultCheckWinner mapping
-        console.log(player, "WINS");
-      } else if (resultCheckWinner === 0) {
-        setPlayState(playStateType.tie);
-        setDisplayContainerState(containerStateType.TieState);
-        setGameResult(gameResultType.Tie);
-        console.log("TIE");
-      } else if (resultCheckWinner === false) {
-        console.log("Change to Mark Space");
-        setPlayState(playStateType.markSpace);
-        setDisplayContainerState(containerStateType.ActivePlayer);
-        console.log("if statement call", currentPlayer, players);
-        nextPlayer(currentPlayer, players);
-      }
-      return resultCheckWinner;
+      return checkWinner(newBoard, player.marker) === true;
     });
   };
+
+  // console.log("Current checkAll PLAYER:", player);
+  // if (resultCheckWinner === true) {
+  //   setPlayState(playStateType.win);
+  //   setDisplayContainerState(containerStateType.WinState);
+  //   setGameResult(gameResultType.Win);
+  //   setWinPlayer(player); //this will change depending on who the winner is from resultCheckWinner mapping
+  //   console.log(player, "WINS");
+  // } else if (resultCheckWinner === 0) {
+  //   setPlayState(playStateType.tie);
+  //   setDisplayContainerState(containerStateType.TieState);
+  //   setGameResult(gameResultType.Tie);
+  //   console.log("TIE");
+  // } else if (resultCheckWinner === false) {
+  //   console.log("Change to Mark Space");
+  //   setPlayState(playStateType.markSpace);
+  //   setDisplayContainerState(containerStateType.ActivePlayer);
+  //   console.log("if statement call", currentPlayer, players);
+  //   nextPlayer(currentPlayer, players);
+  // }
 
   return (
     <section className="arrow-buttons">
@@ -60,9 +61,40 @@ const ArrowButtons = ({
         onClick={() => {
           rotateBlockSelected(blockSelected, board, 90);
           const newBoard = rotateBlockSelected(blockSelected, board, 90);
-          // const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
-          checkAllPlayers(players, newBoard);
-          console.log("checkAllPlayers:", checkAllPlayers(players, newBoard));
+          const resultCheckWinner = checkWinner(newBoard, currentPlayer.marker);
+          const checkAllPlayersArray = checkAllPlayers(players, newBoard);
+          const checkAllPlayersArrayLength = checkAllPlayersArray.length;
+          console.log("Winning Player:", checkAllPlayersArray);
+          console.log(
+            "checkAll Players Array Length:",
+            checkAllPlayersArrayLength
+          );
+
+          if (checkAllPlayersArrayLength > 0) {
+            currentPlayer = checkAllPlayersArray;
+            setPlayState(playStateType.win);
+            setDisplayContainerState(containerStateType.WinState);
+            setGameResult(gameResultType.Win);
+            setWinPlayer(currentPlayer); //this will change depending on who the winner is from resultCheckWinner mapping
+            console.log(currentPlayer, "WINS");
+          } else if (
+            checkAllPlayersArrayLength <= 0 &&
+            resultCheckWinner === 0
+          ) {
+            setPlayState(playStateType.tie);
+            setDisplayContainerState(containerStateType.TieState);
+            setGameResult(gameResultType.Tie);
+            console.log("TIE");
+          } else if (
+            checkAllPlayersArrayLength <= 0 &&
+            resultCheckWinner === false
+          ) {
+            console.log("Change to Mark Space");
+            setPlayState(playStateType.markSpace);
+            setDisplayContainerState(containerStateType.ActivePlayer);
+            console.log("if statement call", currentPlayer, players);
+            nextPlayer(currentPlayer, players);
+          }
 
           // if (resultCheckWinner === true) {
           //   setPlayState(playStateType.win);
