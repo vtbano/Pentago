@@ -5,6 +5,7 @@ const OptionButtons = ({ resetGame, topContainer }) => {
   const [showRules, setShowRules] = useState(false);
   return (
     <section className="footer-buttons">
+      {showRules && <Rules />}
       <img
         src="./images/icons8-reset-96.png"
         alt="restart button"
@@ -14,7 +15,6 @@ const OptionButtons = ({ resetGame, topContainer }) => {
           resetGame();
         }}
       />
-      {showRules && <Rules />}
       <img
         src="./images/icons8-puzzled-96.png"
         alt="Rules button"
