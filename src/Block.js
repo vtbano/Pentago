@@ -23,6 +23,7 @@ const Block = ({
   containerStateType,
   setGameResult,
   setWinPlayer,
+  setMoves,
 }) => {
   const { flatten } = batteries;
   const boardSpaces = flatten(block);
@@ -60,6 +61,7 @@ const Block = ({
             containerStateType={containerStateType}
             setGameResult={setGameResult}
             setWinPlayer={setWinPlayer}
+            setMoves={setMoves}
           />
         );
       })}

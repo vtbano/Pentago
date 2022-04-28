@@ -17,6 +17,7 @@ const Space = ({
   containerStateType,
   setGameResult,
   setWinPlayer,
+  setMoves,
 }) => {
   return (
     <div className="space">
@@ -61,6 +62,10 @@ const Space = ({
             } else if (resultCheckWinner === false) {
               setPlayState(playStateType.tileShift);
               setDisplayContainerState(containerStateType.ArrowButtons);
+              setMoves({
+                ...currentPlayer,
+                moves: `Marked on Block${blockIndex} Space${spaceIndex}`,
+              });
             }
           }
         }}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import LandingPageButtons from "./LandingPageButtons.js";
 import Gameboard from "./GameBoard.js";
@@ -8,11 +8,21 @@ import WinGame from "./WinGame.js";
 import TieGameRestart from "./TieGameRestart.js";
 import gameResultType from "./gameResultType.js";
 
+const getLocalStorage = () => {
+  let moves = localStorage.getItem("list");
+  if (moves) {
+    return (moves = JSON.parse(localStorage.getItem("moves")));
+  } else {
+    return [];
+  }
+};
+
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
   const [winPlayer, setWinPlayer] = useState(null);
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
+  const [moves, setMoves] = useState(getLocalStorage());
 
   const topContainerDisplay = (gameResult, winPlayer) => {
     if (gameResult === "InitialGame") {
@@ -23,6 +33,10 @@ const App = () => {
       return <WinGame winPlayer={winPlayer} />;
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("moves", JSON.stringify(moves));
+  }, [moves]);
 
   return (
     <React.Fragment>
@@ -50,6 +64,7 @@ const App = () => {
               gameResult={gameResult}
               setWinPlayer={setWinPlayer}
               winPlayer={winPlayer}
+              setMoves={setMoves}
             />
           ) : (
             <LandingPageButtons
@@ -63,14 +78,13 @@ const App = () => {
         </div>
         <article className="option-buttons">
           <OptionButtons
-            setDisplay={setDisplay}
-            setPlayers={setPlayers}
             topContainer={() => topContainerDisplay(gameResult, winPlayer)}
             resetGame={() => {
               setGameResult(gameResultType.InitialGame);
               setPlayers([]);
               setDisplay(false);
             }}
+            moves={moves}
           />
         </article>
       </section>

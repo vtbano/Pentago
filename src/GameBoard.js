@@ -49,6 +49,7 @@ const Gameboard = ({
   gameResult,
   setWinPlayer,
   winPlayer,
+  setMoves,
 }) => {
   const [board, setBoard] = useState(boardArray);
   const { flatten } = batteries;
@@ -225,6 +226,7 @@ const Gameboard = ({
           containerStateType={containerStateType}
           setGameResult={setGameResult}
           setWinPlayer={setWinPlayer}
+          setMoves={setMoves}
         />
       );
     } else if (displayContainerState === "WinState") {
