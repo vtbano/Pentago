@@ -62,11 +62,11 @@ const Space = ({
             } else if (resultCheckWinner === false) {
               setPlayState(playStateType.tileShift);
               setDisplayContainerState(containerStateType.ArrowButtons);
-              setMoves({
-                ...currentPlayer,
-                moves: `Marked on Block${blockIndex} Space${spaceIndex}`,
-              });
             }
+            // setMoves({
+            //   ...currentPlayer,
+            //   move: `Marked on Block ${blockIndex} Space ${spaceIndex}`,
+            // });
           }
         }}
       >

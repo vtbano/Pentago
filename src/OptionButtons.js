@@ -4,11 +4,11 @@ import Rules from "./Rules.js";
 
 const OptionButtons = ({ resetGame, topContainer, moves }) => {
   const [showRules, setShowRules] = useState(false);
-  const [showMoves, setShowMoves] = useState(false);
+  // const [showMoves, setShowMoves] = useState(false);
   return (
     <section className="footer-buttons">
       {showRules && <Rules />}
-      {showMoves && <MoveHistory moves={moves} />}
+      {/* {showMoves && <MoveHistory moves={moves} />} */}
       <img
         src="./images/icons8-reset-96.png"
         alt="restart button"
@@ -28,7 +28,7 @@ const OptionButtons = ({ resetGame, topContainer, moves }) => {
         src="./images/icons8-activity-history-96.png"
         alt="move history button"
         className="history-button"
-        onClick={() => setShowMoves(!showMoves)}
+        // onClick={() => setShowMoves(!showMoves)}
       />
     </section>
   );

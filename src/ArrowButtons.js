@@ -129,10 +129,11 @@ const ArrowButtons = ({
           }
         }}
       />
-      <p>
-        Select a block to rotate and click which direction you would like the
-        block to shift.Clockwise or CounterClockwise
-      </p>
+      <div className="arrow-buttons-p">
+        Select a block to rotate and click which direction you want the block to
+        shift.
+        <div className="arrow-buttons-q">Clockwise or CounterClockwise? </div>
+      </div>
     </section>
   );
 };
