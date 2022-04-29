@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import MoveHistory from "./MoveHistory.js";
 import Rules from "./Rules.js";
 
-const OptionButtons = ({ resetGame, topContainer, moves }) => {
+const OptionButtons = ({ resetGame, topContainer, moves, handleToggle }) => {
   const [showRules, setShowRules] = useState(false);
+
   // const [showMoves, setShowMoves] = useState(false);
   return (
     <section className="footer-buttons">
@@ -22,7 +23,10 @@ const OptionButtons = ({ resetGame, topContainer, moves }) => {
         src="./images/icons8-puzzled-96.png"
         alt="Rules button"
         className="rules-button"
-        onClick={() => setShowRules(!showRules)}
+        onClick={() => {
+          setShowRules(!showRules);
+          handleToggle();
+        }}
       />
       <img
         src="./images/icons8-activity-history-96.png"

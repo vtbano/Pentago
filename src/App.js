@@ -23,6 +23,11 @@ const App = () => {
   const [winPlayer, setWinPlayer] = useState(null);
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
   const [moves, setMoves] = useState(getLocalStorage());
+  const [isActive, setActive] = useState(false);
+
+  const handleToggle = () => {
+    setActive(!isActive);
+  };
 
   const topContainerDisplay = (gameResult, winPlayer) => {
     if (gameResult === "InitialGame") {
@@ -76,7 +81,7 @@ const App = () => {
             />
           )}
         </div>
-        <article className="option-buttons">
+        <article className={isActive ? "click-rules" : "option-buttons"}>
           <OptionButtons
             topContainer={() => topContainerDisplay(gameResult, winPlayer)}
             resetGame={() => {
@@ -85,6 +90,7 @@ const App = () => {
               setDisplay(false);
             }}
             moves={moves}
+            handleToggle={handleToggle}
           />
         </article>
       </section>

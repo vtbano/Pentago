@@ -22,9 +22,11 @@ header {
   justify-content: center;
 }
 
+/* this allows the display to stack on top and it also makes position relative for .click-rules */
 @media screen and (max-width: 1000px) {
   .game-section {
     display: block;
+    position: relative;
   }
 }
 
@@ -83,6 +85,20 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
+}
+
+/* this allows the Rules container to show over the board when the screen is less than 800px */
+@media screen and (max-width: 1000px) {
+  .click-rules {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    position: absolute;
+    top: 8rem;
+    left: 13rem;
+  }
 }
 
 .restart-button,
@@ -149,6 +165,7 @@ header {
   border: solid 2px #c1f8cf;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-self: center;
 }
 
 .space {
