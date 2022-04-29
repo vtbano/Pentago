@@ -147,7 +147,6 @@ header {
   width: 500px;
   height: 500px;
   grid-template-columns: 1fr 1fr 1fr;
-  /* gap: 0.5rem; */
   background-color: #38a3a5;
   padding-top: 1rem;
 }

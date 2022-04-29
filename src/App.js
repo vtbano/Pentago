@@ -7,6 +7,7 @@ import StartGame from "./StartGame.js";
 import WinGame from "./WinGame.js";
 import TieGameRestart from "./TieGameRestart.js";
 import gameResultType from "./gameResultType.js";
+import Footer from "./Footer.js";
 
 const getLocalStorage = () => {
   let moves = localStorage.getItem("list");
@@ -24,6 +25,7 @@ const App = () => {
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
   const [moves, setMoves] = useState(getLocalStorage());
   const [isActive, setActive] = useState(false);
+  const [footerActive, setFooterActive] = useState(true);
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -92,11 +94,14 @@ const App = () => {
               }}
               moves={moves}
               handleToggle={handleToggle}
+              setFooterActive={() => setFooterActive(!footerActive)}
             />
           </article>
         </section>
         <footer>
-          <span className="created-by">
+          {footerActive ? <Footer /> : ""}
+
+          {/* <span className="created-by">
             Created by Vanessa Bano |
             <a
               href="https://github.com/vtbano/Pentago.git"
@@ -114,7 +119,7 @@ const App = () => {
             >
               LinkedIn
             </a>
-          </span>
+          </span> */}
         </footer>
       </body>
     </React.Fragment>

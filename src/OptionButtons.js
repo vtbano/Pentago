@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import MoveHistory from "./MoveHistory.js";
 import Rules from "./Rules.js";
 
-const OptionButtons = ({ resetGame, topContainer, moves, handleToggle }) => {
+const OptionButtons = ({
+  resetGame,
+  topContainer,
+  moves,
+  handleToggle,
+  setFooterActive,
+}) => {
   const [showRules, setShowRules] = useState(false);
 
   // const [showMoves, setShowMoves] = useState(false);
@@ -26,6 +32,7 @@ const OptionButtons = ({ resetGame, topContainer, moves, handleToggle }) => {
         onClick={() => {
           setShowRules(!showRules);
           handleToggle();
+          setFooterActive();
         }}
       />
       <img
