@@ -9,20 +9,24 @@ const WinState = ({
 }) => {
   return (
     <section className="win-container">
-      <p>{winPlayer.name} WINS!</p>
-      <img
-        src="./images/icons8-playAgainGold.png"
-        alt="next button"
-        className="next-button"
-        onClick={() => {
-          console.log("WinState gameResult", gameResult);
-          console.log("winPlayer", winPlayer);
-          setDisplay(false);
-          topContainer();
-          console.log("WinState", topContainer());
-          setPlayers([]);
-        }}
-      />
+      <div>
+        {winPlayer.name} WINS!
+        <div>
+          <img
+            src="./images/icons8-playAgainGold.png"
+            alt="next button"
+            className="next-button"
+            onClick={() => {
+              console.log("WinState gameResult", gameResult);
+              console.log("winPlayer", winPlayer);
+              setDisplay(false);
+              topContainer();
+              console.log("WinState", topContainer());
+              setPlayers([]);
+            }}
+          />{" "}
+        </div>
+      </div>
     </section>
   );
 };

@@ -255,6 +255,24 @@ footer {
   margin-top: 0;
 }
 
+.win-container,
+.tie-container {
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  font-family: "Galindo", cursive;
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 5rem;
+  background-color: #f9efbc;
+  color: #38a3a5;
+  text-align: center;
+}
+
+.next-button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .arrow-buttons {
   display: grid;
   grid-template-columns: repeat(3, 7rem);
