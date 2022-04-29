@@ -10,15 +10,15 @@ Click the :paperclip: link under the **About** section
 3. Player 1 will then be prompted to select a block they would like to rotate. *The top left block is always highlighted at the beginning*, but the Player can choose any block they wish. *You can click anywhere on the board without being concerned with marking another space on the board.*
 4. Once you've selected your block, you can press the Left or Right Arrow buttons to rotate that block. Then it will be the next **Player's turn!**
 
-⋅⋅⋅As the board fills up it becomes harder as you will now have to play strategic offence and defence, since a rotation can determine a winner. 
+   As the board fills up it becomes harder as you will now have to play strategic offence and defence, since a rotation can determine a winner. 
 
 5. Once there Player reaches 5 in a row *vertically, horizontally, or diagonally* the Winner will be displayed. The Pentagon button at the bottom will allow you to flip to the next screen where the winner is displayed again and you have the option of going another round!
 
-⋅⋅⋅**Draw/Tie**
-⋅⋅⋅If the board fills up with no winner then it will be declared a *Tie Game*.The Pentagon button at the bottom will allow you to flip to the next screen and you have the option of going another round!
+   **Draw/Tie**
+   If the board fills up with no winner then it will be declared a *Tie Game*.The Pentagon button at the bottom will allow you to flip to the next screen and you have the option of going another round!
 
-⋅⋅⋅**Restart & Rules buttons**
-⋅⋅⋅At the footer there will always be the option to *Restart* the game or look at the *Rules*. 
+   **Restart & Rules buttons**
+   At the footer there will always be the option to *Restart* the game or look at the *Rules*. 
 
 
 ## Dependencies
