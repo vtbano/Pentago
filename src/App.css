@@ -375,11 +375,18 @@ footer {
   }
 }
 
+/* this allows the  <div>•</div> to be in-line until it needs to become block */
+@media screen and (min-width: 535px) {
+  .created-by div {
+    display: inline-block;
+  }
+}
+
 @media screen and (max-width: 535px) {
   #githubLink,
   #LinkedIn,
   .created-by {
-    font-size: 0.5rem;
-    justify-self: stretch;
+    display: block;
+    text-align: center;
   }
 }

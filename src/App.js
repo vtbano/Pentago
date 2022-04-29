@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <body className="game-body">
+      <div className="game-body">
         <header>
           <div className="title-container">
             <h1>PentaG</h1>
@@ -99,7 +99,7 @@ const App = () => {
           </article>
         </section>
         <footer>{footerActive ? <Footer /> : ""}</footer>
-      </body>
+      </div>
     </React.Fragment>
   );
 };
