@@ -27,6 +27,24 @@ footer {
   margin-right: 0;
 }
 
+.marker-1,
+.marker-2,
+.marker-3,
+.marker-4 {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 535px) {
+  .marker-1,
+  .marker-2,
+  .marker-3,
+  .marker-4 {
+    width: 15px;
+    height: 15px;
+  }
+}
+
 .game-section {
   display: grid;
   justify-content: center;

@@ -12,12 +12,10 @@ const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
             {
               name: "Player 1",
               marker: 1,
-              img: "./images/icons8-purple-circle-30.png",
             },
             {
               name: "Player 2",
               marker: 2,
-              img: "./images/icons8-green-circle-30.png",
             },
           ]);
         }}
@@ -32,17 +30,14 @@ const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
             {
               name: "Player 1",
               marker: 1,
-              img: "./images/icons8-purple-circle-30.png",
             },
             {
               name: "Player 2",
               marker: 2,
-              img: "./images/icons8-green-circle-30.png",
             },
             {
               name: "Player 3",
               marker: 3,
-              img: "./images/icons8-orange-circle-30.png",
             },
           ]);
         }}
@@ -57,22 +52,18 @@ const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
             {
               name: "Player 1",
               marker: 1,
-              img: "./images/icons8-purple-circle-30.png",
             },
             {
               name: "Player 2",
               marker: 2,
-              img: "./images/icons8-green-circle-30.png",
             },
             {
               name: "Player 3",
               marker: 3,
-              img: "./images/icons8-orange-circle-30.png",
             },
             {
               name: "Player 4",
               marker: 4,
-              img: "./images/icons8-pink-circle-30.png",
             },
           ]);
         }}

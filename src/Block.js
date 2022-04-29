@@ -9,12 +9,9 @@ const Block = ({
   board,
   setBoard,
   markPosition,
-  // setMarked,
   setBlockSelected,
   blockSelected,
-  players,
   currentPlayer,
-  setCurrentPlayer,
   playState,
   setPlayState,
   playStateType,
@@ -52,7 +49,6 @@ const Block = ({
             setBoard={setBoard}
             markPosition={markPosition}
             // setMarked={setMarked}
-            players={players}
             currentPlayer={currentPlayer}
             playState={playState}
             setPlayState={setPlayState}

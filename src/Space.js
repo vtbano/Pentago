@@ -8,7 +8,6 @@ const Space = ({
   board,
   setBoard,
   markPosition,
-  players,
   currentPlayer,
   playState,
   setPlayState,
@@ -20,20 +19,27 @@ const Space = ({
   setWinPlayer,
   setMoves,
 }) => {
-  // const { name, marker, img } = players;
-  // const displayMarker = (spaceSet) => {
-  //   if (spaceSet === 0) {
-  //     return spaceSet;
-  //   } else if (spaceSet === 1) {
-  //     return players[0]
-  //   } else if (spaceSet === 2) {
-  //     return players[1].img;
-  //   } else if (spaceSet === 3) {
-  //     return players[2].img;
-  //   } else if (spaceSet === 4) {
-  //     return players[3].img;
-  //   }
-  // };
+  const displayMarker = (spaceSet) => {
+    if (spaceSet === 0) {
+      return spaceSet;
+    } else if (spaceSet === 1) {
+      return (
+        <img src="./images/icons8-purple-circle-30.png" className="marker-1" />
+      );
+    } else if (spaceSet === 2) {
+      return (
+        <img src="./images/icons8-green-circle-30.png" className="marker-2" />
+      );
+    } else if (spaceSet === 3) {
+      return (
+        <img src="./images/icons8-orange-circle-30.png" className="marker-3" />
+      );
+    } else if (spaceSet === 4) {
+      return (
+        <img src="./images/icons8-pink-circle-30.png" className="marker-4" />
+      );
+    }
+  };
   return (
     <div className="space">
       <button
@@ -85,8 +91,7 @@ const Space = ({
           }
         }}
       >
-        {/* {displayMarker(spaceSet)} */}
-        {spaceSet}
+        {displayMarker(spaceSet)}
       </button>
     </div>
   );
