@@ -5,6 +5,12 @@ h1 {
   display: inline;
 }
 
+@media screen and (max-width: 535px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 body {
   background-color: #22577a;
 }
@@ -14,6 +20,11 @@ header {
   display: grid;
   justify-content: center;
   margin: 2rem;
+}
+
+footer {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .game-section {
@@ -151,6 +162,12 @@ header {
   padding-top: 1rem;
 }
 
+@media screen and (max-width: 535px) {
+  .game-board {
+    width: 300px;
+    height: 300px;
+  }
+}
 .block {
   width: 7rem;
   height: 7rem;
@@ -159,6 +176,13 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   justify-self: center;
   transition: border 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 535px) {
+  .block {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
 }
 
 .choose-block {
@@ -170,12 +194,23 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   justify-self: center;
 }
+@media screen and (max-width: 535px) {
+  .choose-block {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
 
 .space {
   display: grid;
   gap: 1rem;
   justify-items: center;
-  margin: -5px;
+}
+
+@media screen and (max-width: 535px) {
+  .space {
+    justify-self: stretch;
+  }
 }
 
 .space-button {
@@ -185,11 +220,16 @@ header {
   font-family: "Galindo", cursive;
   font-size: 1rem;
 }
+@media screen and (max-width: 535px) {
+  .space-button {
+    font-size: 0.75rem;
+    justify-self: stretch;
+  }
+}
 
 .space-button:hover {
   background-color: #38a3a5;
   opacity: 50%;
-  margin: -5px;
   font-weight: 900;
   color: white;
 }
@@ -248,7 +288,6 @@ header {
   text-decoration: none;
   color: #ffd706;
   margin: 0.5rem;
-  place-self: bottom;
 }
 
 @media screen and (max-width: 625px) {
@@ -263,6 +302,7 @@ header {
   #githubLink,
   #LinkedIn,
   .created-by {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
+    justify-self: stretch;
   }
 }
