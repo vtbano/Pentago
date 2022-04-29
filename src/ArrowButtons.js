@@ -100,12 +100,10 @@ const ArrowButtons = ({
           );
 
           if (checkAllPlayersArrayLength > 0) {
-            currentPlayer = checkAllPlayersArray;
             setPlayState(playStateType.win);
             setDisplayContainerState(containerStateType.WinState);
             setGameResult(gameResultType.Win);
-            setWinPlayer(currentPlayer[0]); //this will change depending on who the winner is from resultCheckWinner mapping
-            console.log(currentPlayer, "WINS");
+            setWinPlayer(checkAllPlayersArray[0]); //this will change depending on who the winner is from resultCheckWinner mapping
           } else if (
             checkAllPlayersArrayLength <= 0 &&
             resultCheckWinner === 0
