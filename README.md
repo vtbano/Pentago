@@ -24,16 +24,16 @@ At the footer there will always be the option to *Restart* the game or look at t
 
 ## Sreenshots
 
-**Play Game Snippet**
-!["Who Sang That Demo"](https://github.com/vtbano/Who-Sang-That/blob/master/images/WhoSangThat.gif)
+**Play Game Snippet & Refresh** 
+!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/Pentago2PlayerAndRestart.gif)
 
-**Win Game**
+**Win Game & Rules**
 
-!["Who Sang That Demo"](https://github.com/vtbano/Who-Sang-That/blob/master/images/WhoSangThatWin.gif)
+!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/PentagoRulesAndWinGame.gif)
 
-**Lose Game**
+**Tie Game**
 
-!["Who Sang That Demo"](https://github.com/vtbano/Who-Sang-That/blob/master/images/WhoSangThatLose.gif)
+!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/PentagoTieGame.gif)
 
 
 
