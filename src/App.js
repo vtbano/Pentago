@@ -23,6 +23,7 @@ const App = () => {
   const [players, setPlayers] = useState([]);
   const [winPlayer, setWinPlayer] = useState(null);
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
+  const [moveHisotry, setMoveHistory] = useState("");
   const [moves, setMoves] = useState(getLocalStorage());
   const [isActive, setActive] = useState(false);
   const [footerActive, setFooterActive] = useState(true);

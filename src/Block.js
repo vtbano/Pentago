@@ -12,6 +12,7 @@ const Block = ({
   // setMarked,
   setBlockSelected,
   blockSelected,
+  players,
   currentPlayer,
   setCurrentPlayer,
   playState,
@@ -51,6 +52,7 @@ const Block = ({
             setBoard={setBoard}
             markPosition={markPosition}
             // setMarked={setMarked}
+            players={players}
             currentPlayer={currentPlayer}
             playState={playState}
             setPlayState={setPlayState}

@@ -265,6 +265,7 @@ const Gameboard = ({
               markPosition={markPosition}
               setBlockSelected={setBlockSelected}
               blockSelected={blockSelected}
+              players={players}
               currentPlayer={currentPlayer}
               setCurrentPlayer={setCurrentPlayer}
               playState={playState}
