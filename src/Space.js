@@ -71,8 +71,6 @@ const Space = ({
         }}
       >
         {spaceSet}
-        {/* {console.log("block Index:", blockIndex)}
-        {console.log("space Index", spaceIndex)} */}
       </button>
     </div>
   );
