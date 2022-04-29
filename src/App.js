@@ -45,76 +45,78 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <header>
-        <div className="title-container">
-          <h1>PentaG</h1>
-          <img
-            src="./images/icons8-pentagon-100.png"
-            alt="pentagon"
-            className="title-symbol"
-          />
-          <h1>!</h1>
-        </div>
-      </header>
-      <section className="game-section">
-        {/* <div className="move-update-container">Move Update Container</div> */}
-        <div className="container">
-          {display ? (
-            <Gameboard
-              players={players}
-              setPlayers={setPlayers}
-              topContainerDisplay={topContainerDisplay}
-              setDisplay={setDisplay}
-              setGameResult={setGameResult}
-              gameResult={gameResult}
-              setWinPlayer={setWinPlayer}
-              winPlayer={winPlayer}
-              setMoves={setMoves}
+      <body className="game-body">
+        <header>
+          <div className="title-container">
+            <h1>PentaG</h1>
+            <img
+              src="./images/icons8-pentagon-100.png"
+              alt="pentagon"
+              className="title-symbol"
             />
-          ) : (
-            <LandingPageButtons
-              display={display}
-              setDisplay={setDisplay}
-              setPlayers={setPlayers}
+            <h1>!</h1>
+          </div>
+        </header>
+        <section className="game-section">
+          {/* <div className="move-update-container">Move Update Container</div> */}
+          <div className="container">
+            {display ? (
+              <Gameboard
+                players={players}
+                setPlayers={setPlayers}
+                topContainerDisplay={topContainerDisplay}
+                setDisplay={setDisplay}
+                setGameResult={setGameResult}
+                gameResult={gameResult}
+                setWinPlayer={setWinPlayer}
+                winPlayer={winPlayer}
+                setMoves={setMoves}
+              />
+            ) : (
+              <LandingPageButtons
+                display={display}
+                setDisplay={setDisplay}
+                setPlayers={setPlayers}
+                topContainer={() => topContainerDisplay(gameResult, winPlayer)}
+                // topContainer={topContainer}
+              />
+            )}
+          </div>
+          <article className={isActive ? "click-rules" : "option-buttons"}>
+            <OptionButtons
               topContainer={() => topContainerDisplay(gameResult, winPlayer)}
-              // topContainer={topContainer}
+              resetGame={() => {
+                setGameResult(gameResultType.InitialGame);
+                setPlayers([]);
+                setDisplay(false);
+              }}
+              moves={moves}
+              handleToggle={handleToggle}
             />
-          )}
-        </div>
-        <article className={isActive ? "click-rules" : "option-buttons"}>
-          <OptionButtons
-            topContainer={() => topContainerDisplay(gameResult, winPlayer)}
-            resetGame={() => {
-              setGameResult(gameResultType.InitialGame);
-              setPlayers([]);
-              setDisplay(false);
-            }}
-            moves={moves}
-            handleToggle={handleToggle}
-          />
-        </article>
-      </section>
-      <footer>
-        <span className="created-by">
-          Created by Vanessa Bano |
-          <a
-            href="https://github.com/vtbano/Pentago.git"
-            target="_blank"
-            alt="GitHub link to Pentago App"
-            id="githubLink"
-          >
-            GitHub |
-          </a>
-          <a
-            href="https://www.linkedin.com/in/vanessatbano/"
-            target="_blank"
-            alt="Vanessa Bano's LinkedIn profile"
-            id="LinkedIn"
-          >
-            LinkedIn
-          </a>
-        </span>
-      </footer>
+          </article>
+        </section>
+        <footer>
+          <span className="created-by">
+            Created by Vanessa Bano |
+            <a
+              href="https://github.com/vtbano/Pentago.git"
+              target="_blank"
+              alt="GitHub link to Pentago App"
+              id="githubLink"
+            >
+              GitHub |
+            </a>
+            <a
+              href="https://www.linkedin.com/in/vanessatbano/"
+              target="_blank"
+              alt="Vanessa Bano's LinkedIn profile"
+              id="LinkedIn"
+            >
+              LinkedIn
+            </a>
+          </span>
+        </footer>
+      </body>
     </React.Fragment>
   );
 };
