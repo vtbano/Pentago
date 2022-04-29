@@ -56,6 +56,13 @@ footer {
   height: 13rem;
 }
 
+@media screen and (max-width: 535px) {
+  .pentago-and-trophy {
+    width: 17rem;
+    height: 10rem;
+  }
+}
+
 .welcome-msg,
 .winning-play-again-msg {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -65,13 +72,34 @@ footer {
   text-align: center;
 }
 
+.welcome-msg .bold-msg {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.text-and-background-display {
+  position: relative;
+}
 .winner-shoutOut {
   position: absolute;
-  top: 250px;
-  left: 115px;
+  top: 80px;
+  left: 60px;
   font-family: "Galindo", cursive;
   font-size: 1rem;
-  color: #f9efbc;
+  color: #38a3a5;
+}
+
+.winner-shoutOut p {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 535px) {
+  .winner-shoutOut {
+    top: 60px;
+    left: 50px;
+    font-size: 0.9rem;
+  }
 }
 .two-player,
 .three-player,
@@ -268,9 +296,18 @@ footer {
   text-align: center;
 }
 
-.next-button {
+.tie-container {
+  height: 3rem;
+}
+
+.win-container .next-button {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.tie-container .next-button {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .arrow-buttons {
@@ -342,7 +379,7 @@ footer {
   #githubLink,
   #LinkedIn,
   .created-by {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
     justify-self: stretch;
   }
 }

@@ -24,7 +24,7 @@ const WinState = ({
               console.log("WinState", topContainer());
               setPlayers([]);
             }}
-          />{" "}
+          />
         </div>
       </div>
     </section>

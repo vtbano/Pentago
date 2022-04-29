@@ -10,7 +10,8 @@ const TieGameRestart = () => {
       />
 
       <p className="welcome-msg">
-        Tie Game! Ready for another round? Click below!
+        <div className="bold-msg">Tie Game! </div> Ready for another round?
+        Click below!
       </p>
     </div>
   );
