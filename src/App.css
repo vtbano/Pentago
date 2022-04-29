@@ -127,6 +127,14 @@ footer {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .restart-button,
+  .rules-button,
+  .history-button {
+    margin: 1rem;
+  }
+}
+
 .rules-container {
   color: white;
   background-color: #533e85;
@@ -278,6 +286,20 @@ footer {
 .arrow-buttons-q {
   font-weight: bold;
   padding: 0;
+}
+
+@media screen and (max-width: 535px) {
+  .left-arrow,
+  .right-arrow {
+    width: 95%;
+    height: 95%;
+  }
+}
+@media screen and (max-width: 535px) {
+  .arrow-buttons {
+    grid-template-columns: repeat(3, 3rem);
+    font-size: 0.7rem;
+  }
 }
 
 #githubLink,
