@@ -23,7 +23,7 @@ Click the :paperclip: link under the **About** section
    At the footer there will always be the following button options:
    * You can restart the game at any time by pressing the **_Restart_** button. The restart is the footer button to the left.
    * If you forget the rules to the game you can always press the middle button **_Rules_**, that has a face and question mark icon :grey_question: 
-   * During the game you may want to see the **_Move History_**. You can pressed the footer button to the right, which is a scroll icon :scroll:
+   * During the game you may want to see the **_Move History_**. You can press the footer button to the right, which is a scroll icon :scroll:
 
 ## Getting Started
 1. Fork this repository, then clone your fork of this repository.
