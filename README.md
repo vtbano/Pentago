@@ -18,12 +18,13 @@ Click the :paperclip: link under the **About** section
    If the board fills up with no winner then it will be declared a *Tie Game*.The Pentagon button at the bottom will allow you to flip to the next screen and you have the option of going another round!
 
    **Restart, Rules & Move History buttons**
+-- hit <Enter> once
    At the footer there will always be the following button options:
-   * *Restart* the game. You can retart the game at any time by pressing the refresh button. The footer button to the left.
-   * If you forget the rules to the game you can always press the middle button *Rules*, that has a face and question mark icon :grey_question: 
-   * During the game you may want to see the move history. You can pressed the footer button to the right, which is a scroll icon :scroll:
+   * You can **_Restart_** the game at any time by pressing the refresh button. The footer button to the left.
+   * If you forget the rules to the game you can always press the middle button **_Rules_**, that has a face and question mark icon :grey_question: 
+   * During the game you may want to see the **_Move History_**. You can pressed the footer button to the right, which is a scroll icon :scroll:
 
-##Getting Started
+## Getting Started
 1. Fork this repository, then clone your fork of this repository.
 2. Install dependencies using the npm install command.
 3. To launch the app on the server use npm start. The app will be served at http://localhost:3000/.
