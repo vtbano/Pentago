@@ -90,12 +90,30 @@ const Space = ({
               setDisplayContainerState(containerStateType.WinState);
               setGameResult(gameResultType.Win);
               setWinPlayer(currentPlayer);
+              setMoves([
+                ...moves,
+                {
+                  id: new Date().getTime().toString(),
+                  move: `WINNING MOVE: ${currentPlayer.name} marked space ${
+                    spaceIndex + 1
+                  } on block ${blockIndex + 1}`,
+                },
+              ]);
               console.log(currentPlayer, "WINS");
               return currentPlayer;
             } else if (resultCheckWinner === 0) {
               setPlayState(playStateType.tie);
               setDisplayContainerState(containerStateType.TieState);
               setGameResult(gameResultType.Tie);
+              setMoves([
+                ...moves,
+                {
+                  id: new Date().getTime().toString(),
+                  move: `LAST MOVE TO TIE: ${currentPlayer.name} marked space ${
+                    spaceIndex + 1
+                  } on block ${blockIndex + 1}`,
+                },
+              ]);
               console.log(currentPlayer, "TIE");
             } else if (resultCheckWinner === false) {
               setPlayState(playStateType.tileShift);

@@ -53,11 +53,19 @@ const ArrowButtons = ({
           );
 
           if (checkAllPlayersArrayLength > 0) {
-            currentPlayer = checkAllPlayersArray;
             setPlayState(playStateType.win);
             setDisplayContainerState(containerStateType.WinState);
             setGameResult(gameResultType.Win);
-            setWinPlayer(currentPlayer[0]); //this will change depending on who the winner is from resultCheckWinner mapping
+            setWinPlayer(checkAllPlayersArray[0]); //this will change depending on who the winner is from resultCheckWinner mapping
+            setMoves([
+              ...moves,
+              {
+                id: new Date().getTime().toString(),
+                move: `WINNING ROTATION: ${
+                  checkAllPlayersArray[0].name
+                } rotated block ${blockSelected + 1} left`,
+              },
+            ]);
             console.log(currentPlayer, "WINS");
           } else if (
             checkAllPlayersArrayLength <= 0 &&
@@ -66,6 +74,15 @@ const ArrowButtons = ({
             setPlayState(playStateType.tie);
             setDisplayContainerState(containerStateType.TieState);
             setGameResult(gameResultType.Tie);
+            setMoves([
+              ...moves,
+              {
+                id: new Date().getTime().toString(),
+                move: `LAST ROTATION TO TIE: ${
+                  currentPlayer.name
+                } rotated block ${blockSelected + 1} left`,
+              },
+            ]);
             console.log("TIE");
           } else if (
             checkAllPlayersArrayLength <= 0 &&
@@ -111,6 +128,15 @@ const ArrowButtons = ({
             setDisplayContainerState(containerStateType.WinState);
             setGameResult(gameResultType.Win);
             setWinPlayer(checkAllPlayersArray[0]); //this will change depending on who the winner is from resultCheckWinner mapping
+            setMoves([
+              ...moves,
+              {
+                id: new Date().getTime().toString(),
+                move: `WINNING ROTATION: ${
+                  checkAllPlayersArray[0].name
+                } rotated block ${blockSelected + 1} right`,
+              },
+            ]);
           } else if (
             checkAllPlayersArrayLength <= 0 &&
             resultCheckWinner === 0
@@ -118,6 +144,15 @@ const ArrowButtons = ({
             setPlayState(playStateType.tie);
             setDisplayContainerState(containerStateType.TieState);
             setGameResult(gameResultType.Tie);
+            setMoves([
+              ...moves,
+              {
+                id: new Date().getTime().toString(),
+                move: `LAST ROTATION TO TIE: ${
+                  currentPlayer.name
+                } rotated block ${blockSelected + 1} right`,
+              },
+            ]);
             console.log("TIE");
           } else if (
             checkAllPlayersArrayLength <= 0 &&
