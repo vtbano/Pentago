@@ -47,7 +47,7 @@ footer {
 
 .game-section {
   display: grid;
-  /* justify-content: center; */
+  justify-content: center;
   place-items: center;
 }
 
@@ -205,6 +205,7 @@ footer {
 .game-display-contents {
   display: grid;
   width: 18rem;
+  justify-content: center;
   place-items: center;
 }
 .game-board {
