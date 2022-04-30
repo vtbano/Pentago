@@ -197,13 +197,18 @@ footer {
   height: 30rem;
 }
 
-::-webkit-scrollbar {
+.moves-container::-webkit-scrollbar {
   width: 0.5rem;
-  color: white;
 }
 
-::-webkit-scrollbar-track {
+.moves-container::-webkit-scrollbar-track {
   background-color: #997eda;
+}
+
+.moves-container::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+  max-height: 10px;
 }
 
 @media screen and (max-width: 800px) {
