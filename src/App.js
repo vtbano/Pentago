@@ -9,22 +9,13 @@ import TieGameRestart from "./TieGameRestart.js";
 import gameResultType from "./gameResultType.js";
 import Footer from "./Footer.js";
 
-const getLocalStorage = () => {
-  let moves = localStorage.getItem("list");
-  if (moves) {
-    return (moves = JSON.parse(localStorage.getItem("moves")));
-  } else {
-    return [];
-  }
-};
-
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [players, setPlayers] = useState([]);
   const [winPlayer, setWinPlayer] = useState(null);
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
   const [moveHisotry, setMoveHistory] = useState("");
-  const [moves, setMoves] = useState(getLocalStorage());
+  const [moves, setMoves] = useState([]);
   const [isActive, setActive] = useState(false);
   const [footerActive, setFooterActive] = useState(true);
 
@@ -42,9 +33,9 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("moves", JSON.stringify(moves));
-  }, [moves]);
+  // useEffect(() => {
+  //   localStorage.setItem("moves", JSON.stringify(moves));
+  // }, [...moves]);
 
   return (
     <React.Fragment>
