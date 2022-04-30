@@ -49,6 +49,7 @@ const Gameboard = ({
   gameResult,
   setWinPlayer,
   winPlayer,
+  moves,
   setMoves,
 }) => {
   const [board, setBoard] = useState(boardArray);
@@ -75,6 +76,23 @@ const Gameboard = ({
   const [displayContainerState, setDisplayContainerState] = useState(
     containerStateType.ActivePlayer
   );
+
+  // const handleMovesOnClick = (
+  //   currentPlayer,
+  //   playStateType,
+  //   blockSelected,
+  //   SpaceIndex
+  // ) => {
+  //   const newMove = {
+  //     id: new Date().getTime().toString(),
+  //     playerName: currentPlayer.name,
+  //     movePlayState: playStateType,
+  //     blockSelected: blockSelected,
+  //     SpaceIndex: SpaceIndex,
+  //   };
+  // setMoves([...moves, newMove]);
+  // console.log(setMoves([...moves, newMove]));
+  // };
 
   //this funtion will return the index of the element identified. Elements are indentified by a number (1,2,3,4)
   const elementsIndex = (arr, elem) => {
@@ -226,6 +244,7 @@ const Gameboard = ({
           containerStateType={containerStateType}
           setGameResult={setGameResult}
           setWinPlayer={setWinPlayer}
+          moves={moves}
           setMoves={setMoves}
         />
       );
@@ -275,6 +294,8 @@ const Gameboard = ({
               containerStateType={containerStateType}
               setGameResult={setGameResult}
               setWinPlayer={setWinPlayer}
+              moves={moves}
+              setMoves={setMoves}
             />
           );
         })}

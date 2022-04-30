@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import LandingPageButtons from "./LandingPageButtons.js";
 import Gameboard from "./GameBoard.js";
@@ -14,10 +14,9 @@ const App = () => {
   const [players, setPlayers] = useState([]);
   const [winPlayer, setWinPlayer] = useState(null);
   const [gameResult, setGameResult] = useState(gameResultType.InitialGame);
-  const [moveHisotry, setMoveHistory] = useState("");
-  const [moves, setMoves] = useState([]);
   const [isActive, setActive] = useState(false);
   const [footerActive, setFooterActive] = useState(true);
+  const [moves, setMoves] = useState([]);
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -32,10 +31,6 @@ const App = () => {
       return <WinGame winPlayer={winPlayer} />;
     }
   };
-
-  // useEffect(() => {
-  //   localStorage.setItem("moves", JSON.stringify(moves));
-  // }, [...moves]);
 
   return (
     <React.Fragment>
@@ -64,6 +59,7 @@ const App = () => {
                 gameResult={gameResult}
                 setWinPlayer={setWinPlayer}
                 winPlayer={winPlayer}
+                moves={moves}
                 setMoves={setMoves}
               />
             ) : (
@@ -83,10 +79,11 @@ const App = () => {
                 setGameResult(gameResultType.InitialGame);
                 setPlayers([]);
                 setDisplay(false);
+                setMoves([]);
               }}
-              moves={moves}
               handleToggle={handleToggle}
               setFooterActive={() => setFooterActive(!footerActive)}
+              moves={moves}
             />
           </article>
         </section>

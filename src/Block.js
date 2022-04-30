@@ -21,6 +21,7 @@ const Block = ({
   containerStateType,
   setGameResult,
   setWinPlayer,
+  moves,
   setMoves,
 }) => {
   const { flatten } = batteries;
@@ -48,7 +49,6 @@ const Block = ({
             board={board}
             setBoard={setBoard}
             markPosition={markPosition}
-            // setMarked={setMarked}
             currentPlayer={currentPlayer}
             playState={playState}
             setPlayState={setPlayState}
@@ -59,6 +59,7 @@ const Block = ({
             containerStateType={containerStateType}
             setGameResult={setGameResult}
             setWinPlayer={setWinPlayer}
+            moves={moves}
             setMoves={setMoves}
           />
         );

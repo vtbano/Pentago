@@ -4,7 +4,14 @@ const MoveHistory = ({ moves }) => {
   return (
     <div className="moves-container">
       <div className="moves-title">Move History</div>
-      <p>{moves}</p>
+      {moves.map((singleMove) => {
+        const { id, move } = singleMove;
+        return (
+          <p className="moves-update" key={id}>
+            {move}
+          </p>
+        );
+      })}
     </div>
   );
 };

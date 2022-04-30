@@ -17,6 +17,7 @@ const Space = ({
   containerStateType,
   setGameResult,
   setWinPlayer,
+  moves,
   setMoves,
 }) => {
   const displayMarker = (spaceSet) => {
@@ -24,19 +25,35 @@ const Space = ({
       return spaceSet;
     } else if (spaceSet === 1) {
       return (
-        <img src="./images/icons8-purple-circle-30.png" className="marker-1" />
+        <img
+          src="./images/icons8-purple-circle-30.png"
+          className="marker-1"
+          alt="purple marker"
+        />
       );
     } else if (spaceSet === 2) {
       return (
-        <img src="./images/icons8-green-circle-30.png" className="marker-2" />
+        <img
+          src="./images/icons8-green-circle-30.png"
+          className="marker-2"
+          alt="green marker"
+        />
       );
     } else if (spaceSet === 3) {
       return (
-        <img src="./images/icons8-orange-circle-30.png" className="marker-3" />
+        <img
+          src="./images/icons8-orange-circle-30.png"
+          className="marker-3"
+          alt="orange marker"
+        />
       );
     } else if (spaceSet === 4) {
       return (
-        <img src="./images/icons8-pink-circle-30.png" className="marker-4" />
+        <img
+          src="./images/icons8-pink-circle-30.png"
+          className="marker-4"
+          alt="pink marker"
+        />
       );
     }
   };
@@ -83,11 +100,16 @@ const Space = ({
             } else if (resultCheckWinner === false) {
               setPlayState(playStateType.tileShift);
               setDisplayContainerState(containerStateType.ArrowButtons);
+              setMoves([
+                ...moves,
+                {
+                  id: new Date().getTime().toString(),
+                  move: `${currentPlayer.name} marked space ${
+                    spaceIndex + 1
+                  } on block ${blockIndex + 1}`,
+                },
+              ]);
             }
-            // setMoves({
-            //   ...currentPlayer,
-            //   move: `Marked on Block ${blockIndex} Space ${spaceIndex}`,
-            // });
           }
         }}
       >

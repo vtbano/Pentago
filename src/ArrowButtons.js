@@ -15,6 +15,7 @@ const ArrowButtons = ({
   containerStateType,
   setGameResult,
   setWinPlayer,
+  moves,
   setMoves,
 }) => {
   const nextPlayer = (currentPlayer, players) => {
@@ -73,10 +74,16 @@ const ArrowButtons = ({
             console.log("Change to Mark Space");
             setPlayState(playStateType.markSpace);
             setDisplayContainerState(containerStateType.ActivePlayer);
-            setMoves({
-              ...currentPlayer,
-              move: `Rotate Block ${blockSelected} Left`,
-            });
+            setMoves([
+              ...moves,
+              {
+                id: new Date().getTime().toString(),
+                move: `${currentPlayer.name} rotated block ${
+                  blockSelected + 1
+                } left`,
+              },
+            ]);
+
             nextPlayer(currentPlayer, players);
           }
         }}
@@ -119,10 +126,16 @@ const ArrowButtons = ({
             console.log("Change to Mark Space");
             setPlayState(playStateType.markSpace);
             setDisplayContainerState(containerStateType.ActivePlayer);
-            setMoves({
-              ...currentPlayer,
-              move: `Rotate Block ${blockSelected} Right`,
-            });
+            setMoves([
+              ...moves,
+              {
+                id: new Date().getTime().toString(),
+                move: `${currentPlayer.name} rotated block ${
+                  blockSelected + 1
+                } right`,
+              },
+            ]);
+
             nextPlayer(currentPlayer, players);
           }
         }}
