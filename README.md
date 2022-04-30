@@ -20,8 +20,13 @@ Click the :paperclip: link under the **About** section
    **Restart & Rules buttons**
    At the footer there will always be the option to *Restart* the game or look at the *Rules*. 
 
+##Getting Started
+1. Fork this repository, then clone your fork of this repository.
+2. Install dependencies using the npm install command.
+3. To launch the app on the server use npm start. The app will be served at http://localhost:3000/.
 
-## Dependencies
+   You can use step 2 & 3 at the same time npm install && npm start
+
 * This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Sreenshots

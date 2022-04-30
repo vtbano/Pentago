@@ -47,14 +47,13 @@ footer {
 
 .game-section {
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
   place-items: center;
 }
 
 /* this allows the display to stack on top and it also makes position relative for .click-rules */
 @media screen and (max-width: 1000px) {
   .game-section {
-    /* display: block; */
     position: relative;
   }
 }
@@ -205,7 +204,8 @@ footer {
 }
 .game-display-contents {
   display: grid;
-  justify-items: center;
+  width: 18rem;
+  place-items: center;
 }
 .game-board {
   display: grid;
@@ -218,8 +218,9 @@ footer {
 
 @media screen and (max-width: 535px) {
   .game-board {
-    width: 300px;
-    height: 300px;
+    display: grid;
+    width: 360px;
+    height: 360px;
   }
 }
 .block {
@@ -234,8 +235,8 @@ footer {
 
 @media screen and (max-width: 535px) {
   .block {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: fit-content;
+    height: fit-content;
   }
 }
 
@@ -250,8 +251,8 @@ footer {
 }
 @media screen and (max-width: 535px) {
   .choose-block {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: fit-content;
+    height: fit-content;
   }
 }
 
@@ -274,12 +275,12 @@ footer {
   font-family: "Galindo", cursive;
   font-size: 1rem;
 }
-@media screen and (max-width: 535px) {
+/* @media screen and (max-width: 535px) {
   .space-button {
     font-size: 0.75rem;
     justify-self: stretch;
   }
-}
+} */
 
 .space-button:hover {
   background-color: #38a3a5;
