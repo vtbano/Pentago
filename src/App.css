@@ -180,7 +180,8 @@ footer {
   }
 }
 
-.rules-container {
+.rules-container,
+.moves-container {
   color: white;
   background-color: #533e85;
   font-size: 12px;
@@ -197,7 +198,8 @@ footer {
   }
 }
 
-.rules-title {
+.rules-title,
+.moves-title {
   font-family: "Galindo", cursive;
   font-size: 2rem;
   text-align: center;

@@ -3,7 +3,11 @@ import React from "react";
 const MoveHistory = ({ moves }) => {
   return (
     <div className="moves-container">
-      <div className="moves-title">Move History</div>
+      <div className="moves-title">MOVE HISTORY</div>
+      <img
+        src="./images/BlockOrder.png"
+        alt="Display how to read the order of the blocks"
+      />
       {moves.map((singleMove) => {
         const { id, move } = singleMove;
         return (
