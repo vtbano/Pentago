@@ -274,6 +274,8 @@ footer {
   background-color: #ffd706;
   color: #f9efbc;
   font-family: "Galindo", cursive;
+  width: 1.8rem;
+  height: 1.8rem;
   font-size: 1rem;
 }
 /* @media screen and (max-width: 535px) {
