@@ -18,9 +18,10 @@ Click the :paperclip: link under the **About** section
    If the board fills up with no winner then it will be declared a *Tie Game*.The Pentagon button at the bottom will allow you to flip to the next screen and you have the option of going another round!
 
    **Restart, Rules & Move History buttons**
--- hit <Enter> once
+
+
    At the footer there will always be the following button options:
-   * You can **_Restart_** the game at any time by pressing the refresh button. The footer button to the left.
+   * You can restart the game at any time by pressing the **_Restart_** button. The restart is the footer button to the left.
    * If you forget the rules to the game you can always press the middle button **_Rules_**, that has a face and question mark icon :grey_question: 
    * During the game you may want to see the **_Move History_**. You can pressed the footer button to the right, which is a scroll icon :scroll:
 
