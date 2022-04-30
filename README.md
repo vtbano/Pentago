@@ -17,8 +17,11 @@ Click the :paperclip: link under the **About** section
    **Draw/Tie**
    If the board fills up with no winner then it will be declared a *Tie Game*.The Pentagon button at the bottom will allow you to flip to the next screen and you have the option of going another round!
 
-   **Restart & Rules buttons**
-   At the footer there will always be the option to *Restart* the game or look at the *Rules*. 
+   **Restart, Rules & Move History buttons**
+   At the footer there will always be the following button options:
+   * *Restart* the game. You can retart the game at any time by pressing the refresh button. The footer button to the left.
+   * If you forget the rules to the game you can always press the middle button *Rules*, that has a face and question mark icon :grey_question: 
+   * During the game you may want to see the move history. You can pressed the footer button to the right, which is a scroll icon :scroll:
 
 ##Getting Started
 1. Fork this repository, then clone your fork of this repository.
@@ -31,16 +34,16 @@ Click the :paperclip: link under the **About** section
 
 ## Sreenshots
 
-**Play Game Snippet & Refresh** 
-!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/Pentago2PlayerAndRestart.gif)
+**Start Game, Rules, Move History & Refresh Snippet** 
+!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/Pentago-Start-Rules-MoveHisotry-Refresh.gif)
 
-**Win Game & Rules**
+**Win Game & Last Move History**
 
-!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/PentagoRulesAndWinGame.gif)
+!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/Pentago-3Players-MoveHistory.gif)
 
-**Tie Game**
+**Tie Game** *This is a dummy sample, so there are empty blocks*
 
-!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/PentagoTieGame.gif)
+!["Pentago Demo"](https://github.com/vtbano/Pentago/blob/main/public/images/Pentago-TieGameSample.gif)
 
 
 
