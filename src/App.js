@@ -68,7 +68,7 @@ const App = () => {
                 setDisplay={setDisplay}
                 setPlayers={setPlayers}
                 topContainer={() => topContainerDisplay(gameResult, winPlayer)}
-                // topContainer={topContainer}
+                setMoves={setMoves}
               />
             )}
           </div>

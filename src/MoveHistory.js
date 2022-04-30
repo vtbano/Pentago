@@ -7,6 +7,7 @@ const MoveHistory = ({ moves }) => {
       <img
         src="./images/BlockOrder.png"
         alt="Display how to read the order of the blocks"
+        className="block-space-order-img"
       />
       {moves.map((singleMove) => {
         const { id, move } = singleMove;

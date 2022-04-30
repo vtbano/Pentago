@@ -192,9 +192,36 @@ footer {
   padding: 1rem;
 }
 
+.moves-container {
+  overflow-y: scroll;
+  height: 30rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  color: white;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #997eda;
+}
+
 @media screen and (max-width: 800px) {
-  .rules-container {
+  .rules-container,
+  .moves-container {
     width: 15rem;
+  }
+}
+
+.block-space-order-img {
+  width: 18rem;
+  height: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .block-space-order-img {
+    width: 100%;
+    height: 100%;
   }
 }
 

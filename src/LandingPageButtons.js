@@ -1,6 +1,11 @@
 import React from "react";
 
-const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
+const LandingPageButtons = ({
+  setDisplay,
+  setPlayers,
+  topContainer,
+  setMoves,
+}) => {
   return (
     <section className="player-option-buttons">
       <div className="landing-page-top-container">{topContainer()}</div>
@@ -8,6 +13,7 @@ const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
         className="two-player"
         onClick={() => {
           setDisplay(true);
+          setMoves([]);
           setPlayers([
             {
               name: "Player 1",
@@ -26,6 +32,7 @@ const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
         className="three-player"
         onClick={() => {
           setDisplay(true);
+          setMoves([]);
           setPlayers([
             {
               name: "Player 1",
@@ -48,6 +55,7 @@ const LandingPageButtons = ({ setDisplay, setPlayers, topContainer }) => {
         className="four-player"
         onClick={() => {
           setDisplay(true);
+          setMoves([]);
           setPlayers([
             {
               name: "Player 1",
