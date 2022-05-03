@@ -1,5 +1,5 @@
 # Pentago
-This is the online version of Pentago XL. A abstract strategy game from Swedan. This is the extended version where you can play with two, three or four players. The board has 81 empty spaces that are divided into 9 blocks that hold 9 spaces. The 9 blocks are set-up 3 x 3. Each of the blocks rotate left or right on the current player's turn. A current player's turn consists of choosing a space to mark and then rotating a block. The rotation of the blocks is where strategy comes into play. Check out the *Game flow* below to learn more!
+This is the online version of Pentago XL. A abstract strategy game from Sweden. This is the extended version where you can play with two, three or four players. The board has 81 empty spaces that are divided into 9 blocks that hold 9 spaces. The 9 blocks are set-up 3 x 3. Each of the blocks rotate left or right on the current player's turn. A current player's turn consists of choosing a space to mark and then rotating a block. The rotation of the blocks is where strategy comes into play. Check out the *Game flow* below to learn more!
 
 ## How to access the game
 Click the :paperclip: link under the **About** section 
