@@ -279,7 +279,7 @@ footer {
   width: 7rem;
   height: 7rem;
   background-color: #ffc506b6;
-  border: solid 4px #8af0df;
+  border: solid 5px #8af0df;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-self: center;
