@@ -225,7 +225,7 @@ const Gameboard = ({
 
   //this function determines what display should show up. Show it say who the active player is, should it give the option to rotate the board, OR
   //should it state whether there is a winner or a tie and provide an option button to select to the next screen
-  const displayContainer = (displayContainerstate) => {
+  const displayContainer = (displayContainerState) => {
     if (displayContainerState === "ActivePlayer") {
       return <ActivePlayer currentPlayer={currentPlayer} />;
     } else if (displayContainerState === "ArrowButtons") {
