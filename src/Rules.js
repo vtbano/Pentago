@@ -15,11 +15,12 @@ const Rules = () => {
       </p>
       <h4>Game Objective:</h4>
       <p className="game-objective">
-        The object is to get five markers in a row before the other opponent(s).
-        The mind twisting part of PentaGo is that each player will rotate one of
-        the nine game blocks 90 degrees (left), clockwise or counter clockwise
-        (right), as part of each turn. A 180 degree (double rotation) is not
-        allowed. The rotation is the key to create winning positions in PentaGo.
+        The object of the game is to get five markers in a row before the other
+        opponent(s). The mind twisting part of PentaGo is that each player will
+        rotate one of the nine game blocks 90 degrees (left), clockwise or
+        counter clockwise (right), as part of each turn. A 180 degree (double
+        rotation) is not allowed. The rotation is the key to create winning
+        positions in PentaGo.
       </p>
       <h4>Play Game:</h4>
       <p className="play-game">
